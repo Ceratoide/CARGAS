@@ -16,9 +16,10 @@ class world:
         bg_image = pygame.image.load("fondo-pared-ladrillos.jpg")
         self.bg_image = bg_image.convert()
         self.screen.blit(self.bg_image,(0,0))
-        
+        self.tablero=pygame.image.load("Tab.png")
     def update(self):
         self.clock.tick(10)   
+        
         
         
         
@@ -34,7 +35,7 @@ class world:
                 o.acel=o.fuerza(k)
                 o.move(k)
                 self.screen.blit(o.image,o.pos)
-        
+        self.screen.blit(self.tablero,(10,10))    
         pygame.display.flip()
     def visual():
         
@@ -66,7 +67,7 @@ class world:
         while True:
             
             for event in pygame.event.get():
-                if event.type == MOUSEBUTTONUP:
+                if event.type == MOUSEBUTTONDOWN:
                     v=v+[ball(pygame.mouse.get_pos(),(0,0),10)]
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
