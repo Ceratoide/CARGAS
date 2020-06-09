@@ -35,7 +35,7 @@ class world:
                 o.acel=o.fuerza(k)
                 o.move(k)
                 self.screen.blit(o.image,o.pos)
-        self.screen.blit(self.tablero,(10,10))    
+        self.screen.blit(self.tablero,(0,0))    
         pygame.display.flip()
     def visual():
         
