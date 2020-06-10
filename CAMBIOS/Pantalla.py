@@ -99,7 +99,7 @@ class world:
                     if b==True:
                         if pygame.mouse.get_pos()[0]>225:
                             v=v+[ball(pygame.mouse.get_pos(),(0,0),10)]
-                    else:
+                    if b==False:
                         if pygame.mouse.get_pos()[0]>225:
                             u=u+[carga(pygame.mouse.get_pos(),-10)]
                 if event.type == pygame.KEYDOWN:
