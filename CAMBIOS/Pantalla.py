@@ -12,17 +12,24 @@ class world:
         self.clock=pygame.time.Clock()
         self.ball=ball
         self.cargas=cargas
+
+        self.BLANCO = (255, 255, 255)
+
         self.screen = pygame.display.set_mode((800, 600))
         bg_image = pygame.image.load("fondo-pared-ladrillos.jpg")
         self.bg_image = bg_image.convert()
         self.screen.blit(self.bg_image,(0,0))
         self.tablero=pygame.image.load("Tab.png")
-    def update(self):
+    def dibujar_botones(self,lista_botones):
+        panel = pygame.transform.scale(self.tablero, [800, 600])
+        self.screen.blit(panel, [0, 0])
+        for boton in lista_botones:
+            if boton['on_click']:
+                self.screen.blit(boton['imagen_pressed'], boton['rect'])
+            else:
+                self.screen.blit(boton['imagen'], boton['rect'])
+    def update(self,lista_botones):
         self.clock.tick(10)   
-        
-        
-        
-        
         for o in self.ball :
             self.screen.blit(self.bg_image,o.pos,o.pos)
         for i in range(len(self.ball)):
@@ -35,10 +42,13 @@ class world:
                 o.acel=o.fuerza(k)
                 o.move(k)
                 self.screen.blit(o.image,o.pos)
-        self.screen.blit(self.tablero,(0,0))    
+        self.dibujar_botones(lista_botones)
         pygame.display.flip()
     def visual():
-        
+        ELECTRON = pygame.image.load("prueba.png")
+        ELECTRON_PULSO = pygame.image.load("PRUEBA_OPRIMIDO.png")
+        CARGA = pygame.image.load("CARGA.png")
+        CARGA_PULSO = pygame.image.load("CARGA_OPRIMIDO.png")
         c=ball((500,100),(1,0),20)
         g=ball((0,200),(10,2),-20)
         h=ball((0,250),(1.5,0),-5)
@@ -64,20 +74,51 @@ class world:
         CO=carga((400,300),40)
         #w=world([PO],[CO])
         v=[]
+        u=[]
+        botones = []
+        r_boton_1_1 = ELECTRON.get_rect()
+        r_boton_1_1.topleft = [40, 135]
+        botones.append({ 'imagen': ELECTRON, 'imagen_pressed': ELECTRON_PULSO, 'rect': r_boton_1_1, 'on_click': False})
+        r_boton_2_2 = ELECTRON.get_rect()
+        r_boton_2_2.topleft = [130, 135]
+        botones.append({ 'imagen': CARGA, 'imagen_pressed': CARGA_PULSO, 'rect': r_boton_2_2, 'on_click': False})
+        
         while True:
             
             for event in pygame.event.get():
                 if event.type == MOUSEBUTTONDOWN:
-                    v=v+[ball(pygame.mouse.get_pos(),(0,0),10)]
+                    
+                    mouse = event.pos
+                    for boton in botones:
+                        boton['on_click'] = boton['rect'].colliderect([mouse[0], mouse[1], 1, 1])
+                    click = True
+                    if botones[0]['on_click'] and click:
+                        b=True
+                    if botones[1]['on_click'] and click:
+                        b=False
+                    if b==True:
+                        if pygame.mouse.get_pos()[0]>225:
+                            v=v+[ball(pygame.mouse.get_pos(),(0,0),10)]
+                    else:
+                        if pygame.mouse.get_pos()[0]>225:
+                            u=u+[carga(pygame.mouse.get_pos(),-10)]
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
                         MENU().otra_pantalla()
                         #w.update()
+
                 if event.type==QUIT:
                     pygame.quit()
                     sys.exit()
-            
-            world(v,cargas).update()
+                if event.type == MOUSEBUTTONUP:
+                    for boton in botones:
+                        boton['on_click'] = False
+
+
+         
+                
+
+            world(v,u).update(botones)
 
 
 
