@@ -1,7 +1,3 @@
-
-import pygame,sys
-from pygame.locals import *
-import numpy as np
 from Funciones import *
 from Pantalla import *
 from Menu import *
@@ -11,6 +7,7 @@ class main:
         
         pygame.init()
         pygame.display.set_caption("Simulador Campo Electrico ")
+   
         self.imagen_boton = pygame.image.load("iniciar.png")
         self.imagen_boton_pressed = pygame.image.load("iniciar_oprimido.png")
         self.imagen_panel = pygame.image.load('INICIO.jpg')
@@ -50,20 +47,15 @@ class main:
                         boton['on_click'] = False
                 if event.type == pygame.KEYDOWN:
 
-                        if event.key == pygame.K_p:
-                            otra_pantalla = False
+                    if event.key == pygame.K_q:
+                        otra_pantalla = False
                         world.visual()
-
-                        if event.key == pygame.K_q:
-                            otra_pantalla = False
-                if botones[0]['on_click'] and click:
-                    click = False
-                world.visual()
+            if botones[0]['on_click'] and click:
+                click = False
+                world.visual(self)
 
             self.dibujar_botones_iniciales(botones)
-
             
 
             pygame.display.update()
 main().inicio()
-
