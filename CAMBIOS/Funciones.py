@@ -26,9 +26,12 @@ class carga(pygame.sprite.Sprite):
             return (campo[0],campo[1])
         else:
             return(0,0)
-
+    def magnitud_campo(self,punto):
+        x=self.campo(punto)[0]
+        y=self.campo(punto)[1]
+        return np.sqrt(x**2+y**2)
+        
    
-
 class ball(pygame.sprite.Sprite):
     
     def __init__(self,pos, vel,magnitud,acel=(4,5)):
