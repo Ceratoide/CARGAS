@@ -26,8 +26,8 @@ def main():
                     pygame.quit()
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_p:
-                        otra_pantalla = False
+                        if event.key == pygame.K_p:
+                            otra_pantalla = False
                         world.visual()
             
             pygame.display.update() 
