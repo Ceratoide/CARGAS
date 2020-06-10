@@ -36,6 +36,7 @@ class world:
                 self.ball[i].col(self.cargas[j])
         
         campo_total=0
+        potencial_total=0
         for k in self.cargas:
             self.screen.blit(k.image,k.pos)
             for o in self.ball:
@@ -44,14 +45,17 @@ class world:
                 o.move(k)
                 self.screen.blit(o.image,o.pos)
             campo_total=campo_total+carga.magnitud_campo(k,pygame.mouse.get_pos())
+            potencial_total=potencial_total+carga.potencial(k,pygame.mouse.get_pos())
         texto=self.fuente.render("{:.5f}".format(campo_total), 0, (0, 0, 0))
+        texto2=self.fuente.render("{:.5f}".format(potencial_total), 0, (0, 0, 0))
         self.dibujar_botones(lista_botones)
-        self.screen.blit(texto, (20,245))
+        self.screen.blit(texto, (20,243))
+        self.screen.blit(texto2, (20,315))
         
         
             
         pygame.display.flip()
-    def visual():
+    def visual(self):
         ELECTRON = pygame.image.load("prueba.png")
         ELECTRON_PULSO = pygame.image.load("PRUEBA_OPRIMIDO.png")
         CARGA = pygame.image.load("CARGA.png")
@@ -103,11 +107,6 @@ class world:
             if botones[2]['on_click'] and click:
                 u=[]
                 v=[]
-
-
-         
-                
-
             world(v,u).update(botones)
 
 

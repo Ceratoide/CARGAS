@@ -27,10 +27,21 @@ class carga(pygame.sprite.Sprite):
         else:
             return(0,0)
     def magnitud_campo(self,punto):
-        x=self.campo(punto)[0]
-        y=self.campo(punto)[1]
-        return np.sqrt(x**2+y**2)
-        
+        k=8.9
+        distancia=np.sqrt((punto[0]-self.pos[0])**(2)+(punto[1]-self.pos[1])**(2))
+        if distancia!=0:
+            magnitud=(self.magnitud*k)/distancia**2
+            return magnitud
+        else:
+            return 0
+    def potencial(self,punto):
+        k=8.9
+        distancia=np.sqrt((punto[0]-self.pos[0])**(2)+(punto[1]-self.pos[1])**(2))
+        if distancia!=0:
+            potencial=(self.magnitud*k)/distancia
+            return potencial
+        else:
+            return 0
    
 class ball(pygame.sprite.Sprite):
     

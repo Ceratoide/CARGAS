@@ -5,6 +5,7 @@ import numpy as np
 from Funciones import *
 from Pantalla import *
 from Menu import *
+from Visualizar_pantalla import *
 
 class main:
     def __init__(self):
@@ -26,6 +27,11 @@ class main:
                 self.screen.blit(boton['imagen_pressed'], boton['rect'])
             else:
                 self.screen.blit(boton['imagen'], boton['rect'])
+    def draw(self, screen):
+        # Blit the text.
+        screen.blit(self.txt_surface, (self.rect.x+5, self.rect.y+5))
+        # Blit the rect.
+        pg.draw.rect(screen, self.color, self.rect, 2)
  
     def inicio(self):
         self.clock.tick(10)    
@@ -53,7 +59,7 @@ class main:
                         otra_pantalla = False
             if botones[0]['on_click'] and click:
                 click = False
-                world.visual()
+                world.visual(world)
 
             self.dibujar_botones_iniciales(botones)
             
