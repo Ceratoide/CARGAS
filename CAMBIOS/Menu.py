@@ -52,8 +52,6 @@ class MENU:
                 if event.type == MOUSEBUTTONUP:
                     for boton in botones:
                         boton['on_click'] = False
-
-                        
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
                         otra_pantalla = False
