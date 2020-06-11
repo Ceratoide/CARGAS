@@ -3,7 +3,8 @@ from pygame.locals import *
 import numpy as np
 from Funciones import *
 from Menu import *
-
+from textos import *
+import matplotlib.pyplot as plt
 class world:
     def __init__(self,ball,cargas):
         
@@ -12,7 +13,7 @@ class world:
         self.clock=pygame.time.Clock()
         self.ball=ball
         self.cargas=cargas
-        self.screen = pygame.display.set_mode((800, 600))
+        self.screen=pygame.display.set_mode((800, 600))
         bg_image = pygame.image.load("fondo-pared-ladrillos.jpg")
         self.bg_image = bg_image.convert()
         self.screen.blit(self.bg_image,(0,0))
@@ -27,7 +28,7 @@ class world:
                 self.screen.blit(boton['imagen_pressed'], boton['rect'])
             else:
                 self.screen.blit(boton['imagen'], boton['rect'])
-    def update(self,lista_botones):
+    def update(self,lista_botones,input_boxes):
         self.clock.tick(10)   
         for o in self.ball :
             self.screen.blit(self.bg_image,o.pos,o.pos)
@@ -51,11 +52,16 @@ class world:
         self.dibujar_botones(lista_botones)
         self.screen.blit(texto, (20,243))
         self.screen.blit(texto2, (20,315))
-        
-        
-            
+
+        for box in input_boxes:
+            box.pintar(self.screen)
         pygame.display.flip()
+        
     def visual():
+        mag = cajas_texto(13, 391, 195, 32)
+        velx = cajas_texto(13, 460, 100, 32)
+        vely = cajas_texto(112, 460, 95, 32)
+        input_boxes = [mag, velx,vely]
         ELECTRON = pygame.image.load("prueba.png")
         ELECTRON_PULSO = pygame.image.load("PRUEBA_OPRIMIDO.png")
         CARGA = pygame.image.load("CARGA.png")
@@ -89,10 +95,10 @@ class world:
                         b=False
                     if b==True:
                         if pygame.mouse.get_pos()[0]>225:
-                            v=v+[ball(pygame.mouse.get_pos(),(0,0),10)]
+                            v=v+[ball(pygame.mouse.get_pos(),(0,0),-10)]
                     else:
                         if pygame.mouse.get_pos()[0]>225:
-                            u=u+[carga(pygame.mouse.get_pos(),-10)]
+                            u=u+[carga(pygame.mouse.get_pos(),10)]
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
                         MENU().otra_pantalla()
@@ -104,15 +110,15 @@ class world:
                 if event.type == MOUSEBUTTONUP:
                     for boton in botones:
                         boton['on_click'] = False
+                for box in input_boxes:
+                    box.eventos(event)
             if botones[2]['on_click'] and click:
                 u=[]
                 v=[]
 
+            world(v,u).update(botones,input_boxes)
 
-         
-                
 
-            world(v,u).update(botones)
 
 
 

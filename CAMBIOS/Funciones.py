@@ -37,7 +37,7 @@ class carga(pygame.sprite.Sprite):
     def potencial(self,punto):
         k=8.9
         distancia=np.sqrt((punto[0]-self.pos[0])**(2)+(punto[1]-self.pos[1])**(2))
-        if distancia!=0:
+        if distancia.all()!=0:
             potencial=(self.magnitud*k)/distancia
             return potencial
         else:

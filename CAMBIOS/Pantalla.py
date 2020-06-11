@@ -4,6 +4,10 @@ import numpy as np
 from Funciones import *
 from Menu import *
 from textos import *
+from Potencial import *
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.backends.backend_agg as agg
 class world:
     def __init__(self,ball,cargas):
         
@@ -12,13 +16,13 @@ class world:
         self.clock=pygame.time.Clock()
         self.ball=ball
         self.cargas=cargas
-        self.screen=pygame.display.set_mode((800, 600))
-        bg_image = pygame.image.load("fondo-pared-ladrillos.jpg")
-        self.bg_image = bg_image.convert()
-        self.screen.blit(self.bg_image,(0,0))
+        self.screen=pygame.display.set_mode((800, 600), DOUBLEBUF)
         self.tablero=pygame.image.load("Tab.png")
         self.fuente= pygame.font.Font('DS-DIGIB.TTF', 30)
-        
+        self.window = pygame.display.get_surface()
+        self.size = canv.get_width_height()
+        self.surf =pygame.image.load('MENU.jpg')
+        self.window.blit(self.surf, (0,0))
     def dibujar_botones(self,lista_botones):
         panel = pygame.transform.scale(self.tablero, [800, 600])
         self.screen.blit(panel, [0, 0])
@@ -29,8 +33,9 @@ class world:
                 self.screen.blit(boton['imagen'], boton['rect'])
     def update(self,lista_botones,input_boxes):
         self.clock.tick(10)   
+        
         for o in self.ball :
-            self.screen.blit(self.bg_image,o.pos,o.pos)
+            self.screen.blit(self.surf,o.pos,o.pos)
         for i in range(len(self.ball)):
             for j in range(len(self.cargas)):
                 self.ball[i].col(self.cargas[j])
@@ -38,6 +43,10 @@ class world:
         campo_total=0
         potencial_total=0
         for k in self.cargas:
+            self.window = pygame.display.get_surface()
+            self.size = canv.get_width_height()
+            self.surf = pygame.image.fromstring(raw_data(k), self.size, "RGB")
+            self.window.blit(self.surf, (0,0))
             self.screen.blit(k.image,k.pos)
             for o in self.ball:
                 
@@ -116,6 +125,7 @@ class world:
                 v=[]
 
             world(v,u).update(botones,input_boxes)
+
 
 
 
