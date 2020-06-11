@@ -87,15 +87,22 @@ class ball(pygame.sprite.Sprite):
         
         
     def col(self, o):
-            if pygame.sprite.collide_mask(self,o) is None:
-                return
+        
+        if pygame.sprite.collide_mask(self,o) is None:
+            return
             
-            npspos=np.array((self.pos.x,self.pos.y))
-            npopos=np.array((o.pos.x,o.pos.y))
+        npspos=np.array((self.pos.x,self.pos.y))
+        npopos=np.array((o.pos.x,o.pos.y))
             
-            colision = (npspos-npopos)
-            dist=np.sqrt(np.dot(colision, colision))
+        colision = (npspos-npopos)
+        dist=np.sqrt(np.dot(colision, colision))
+        if dist!=0:
             colision=colision/dist
-
+        if o.magnitud>0 and self.magnitud<0 :
             self.vel = self.vel - self.vel
             return True
+        elif o.magnitud<=0 and self.magnitud>=0:
+            self.vel = self.vel - self.vel
+            return True
+        
+        return 
