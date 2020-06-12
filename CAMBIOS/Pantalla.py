@@ -70,7 +70,7 @@ class world:
         NEW=pygame.image.load("LIMPIAR.png")
         NEW_PULSO=pygame.image.load("LIMPIAR_OPRIMIDO.png")
         v=[]
-        u=[]
+        u=[carga((0,0),0)]
         botones = []
         r_boton_1_1 = ELECTRON.get_rect()
         r_boton_1_1.topleft = [40, 135]
@@ -126,7 +126,7 @@ class world:
                 input_boxes[2].eventos(event)
 
             if botones[2]['on_click'] and click:
-                u=[]
+                u=[carga((0,0),0)]
                 v=[]
 
             world(v,u).update(botones,input_boxes)
