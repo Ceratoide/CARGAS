@@ -12,16 +12,16 @@ fig = pylab.figure(figsize=[8, 6], # Inches
                    dpi=100,        # 100 dots per inch, so the resulting buffer is 400x400 pixels
                    )
 ax = fig.gca()
-t=np.arange(0,10,1)
-xx = np.linspace(0, 600)
-yy = xx.copy()
+ax = fig.add_axes([0, 0, 1, 1])
+ax.axis('off')
+xx = np.linspace(0, 800,20)
+yy = np.linspace(0, 600,20)
 X, Y = np.meshgrid(xx, yy)
 canv = agg.FigureCanvasAgg(fig)
 renderer = canv.get_renderer()
 def raw_data(CARGA):
-
     Z = carga.potencial(CARGA,(X,Y))
-    ax.contourf(X, Y, Z, 3)
+    ax.contourf(X, Y, Z, 5)
 
     global canv
     canv.draw()

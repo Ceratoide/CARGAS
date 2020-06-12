@@ -98,7 +98,7 @@ class ball(pygame.sprite.Sprite):
         dist=np.sqrt(np.dot(colision, colision))
         if dist!=0:
             colision=colision/dist
-        if o.magnitud>0 and self.magnitud<0 :
+        if o.magnitud>=0 and self.magnitud<=0 :
             self.vel = self.vel - self.vel
             return True
         elif o.magnitud<=0 and self.magnitud>=0:
