@@ -31,10 +31,10 @@ class MENU:
         otra_pantalla = True
         botones = []
         r_boton_1_1 = self.imagen_boton.get_rect()
-        r_boton_1_1.topleft = [700, 540]
+        r_boton_1_1.topleft = [670, 540]
         botones.append({ 'imagen': self.imagen_boton, 'imagen_pressed': self.imagen_boton_pressed, 'rect': r_boton_1_1, 'on_click': False})
         r_boton_2_2 = self.imagen_boton.get_rect()
-        r_boton_2_2.topleft = [600, 540]
+        r_boton_2_2.topleft = [550, 540]
         botones.append({ 'imagen': self.imagen_boton_2, 'imagen_pressed': self.imagen_boton_pressed_2, 'rect': r_boton_2_2, 'on_click': False})
         while otra_pantalla:
             for event in pygame.event.get():
