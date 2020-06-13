@@ -5,9 +5,7 @@ from Funciones import *
 from Menu import *
 from textos import *
 from Potencial import *
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.backends.backend_agg as agg
+
 class world:
     def __init__(self,ball,cargas):
         
@@ -22,6 +20,7 @@ class world:
         self.window = pygame.display.get_surface()
         self.size = canv.get_width_height()
         self.surf =pygame.image.load("fondo-pared-ladrillos.jpg")
+        self.surf=self.surf.convert_alpha()
         self.window.blit(self.surf, (0,0))
     def dibujar_botones(self,lista_botones):
         panel = pygame.transform.scale(self.tablero, [800, 600])
@@ -43,8 +42,8 @@ class world:
         self.window = pygame.display.get_surface()
         self.size = canv.get_width_height()
         self.surf = pygame.transform.flip(pygame.image.fromstring(raw_data(self.cargas), self.size, "RGB"),False,True)
-        
-        self.window.blit(self.surf, (0,0))
+        self.surf=self.surf.convert()
+        self.window.blit(self.surf, (20,20))
         campo_total=0
         potencial_total=0
         for k in self.cargas:
@@ -77,6 +76,8 @@ class world:
         CARGA_PULSO = pygame.image.load("CARGA_OPRIMIDO.png")
         NEW=pygame.image.load("LIMPIAR.png")
         NEW_PULSO=pygame.image.load("LIMPIAR_OPRIMIDO.png")
+        ULTIMO=pygame.image.load("return.png")
+        ULTIMO_PULSO=pygame.image.load("return_press.png")
         v=[]
         u=[carga((100,100),0)]
         botones = []
@@ -89,6 +90,9 @@ class world:
         r_boton_3_3 = NEW.get_rect()
         r_boton_3_3.topleft = [45, 510]
         botones.append({ 'imagen': NEW, 'imagen_pressed': NEW_PULSO, 'rect': r_boton_3_3, 'on_click': False})
+        r_boton_4_4 = ULTIMO.get_rect()
+        r_boton_4_4.topleft = [175, 505]
+        botones.append({ 'imagen': ULTIMO, 'imagen_pressed': ULTIMO_PULSO, 'rect': r_boton_4_4, 'on_click': False})
         b=None
         VelX=0
         VelY=0
@@ -132,5 +136,9 @@ class world:
             if botones[2]['on_click'] and click:
                 u=[]
                 v=[]
+            if botones[3]['on_click'] and click:
+                if len(u)>0:
+                    u.pop(-1)
+                
 
             world(v,u).update(botones,input_boxes)
