@@ -12,8 +12,8 @@ fig = pylab.figure(figsize=[8, 6],dpi=100)
 ax = fig.gca()
 ax = fig.add_axes([0, 0, 1, 1])
 ax.axis('off')
-xx = np.linspace(0, 800,5)
-yy = np.linspace(0, 600,5)
+xx = np.linspace(0, 800,35)
+yy = np.linspace(0, 600,35)
 X, Y = np.meshgrid(xx, yy)
 canv = agg.FigureCanvasAgg(fig)
 renderer = canv.get_renderer()
@@ -23,8 +23,10 @@ def raw_data(potenciales):
         for i in potenciales:
             if i!=potenciales[0]:
                 Z = Z+carga.potencial(i,(X,Y))
-        ax.contourf(X, Y, Z, 100)
-
+            
+        ax.contourf(X, Y, Z, 20)
+       
+        
     global canv
     canv.draw()
     global renderer
