@@ -40,14 +40,13 @@ class main:
                 if event.type==QUIT:
                     pygame.quit()
                     sys.exit()
+                click=False
+                mouse=pygame.mouse.get_pos()
+                for boton in botones:
+                    boton['on_click'] = boton['rect'].colliderect([mouse[0], mouse[1], 1, 1])
                 if event.type == MOUSEBUTTONDOWN:
-                    mouse = event.pos
-                    for boton in botones:
-                        boton['on_click'] = boton['rect'].colliderect([mouse[0], mouse[1], 1, 1])
                     click = True
-                if event.type == MOUSEBUTTONUP:
-                    for boton in botones:
-                        boton['on_click'] = False
+
 
             if botones[0]['on_click'] and click:
                 world.visual()
