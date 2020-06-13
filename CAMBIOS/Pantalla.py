@@ -43,7 +43,8 @@ class world:
         self.window = pygame.display.get_surface()
         self.size = canv.get_width_height()
         self.surf = pygame.transform.flip(pygame.image.fromstring(raw_data(self.cargas), self.size, "RGB"),False,True)
-        self.window.blit(self.surf, (10,10))
+        
+        self.window.blit(self.surf, (0,0))
         campo_total=0
         potencial_total=0
         for k in self.cargas:
@@ -89,6 +90,9 @@ class world:
         r_boton_3_3.topleft = [45, 510]
         botones.append({ 'imagen': NEW, 'imagen_pressed': NEW_PULSO, 'rect': r_boton_3_3, 'on_click': False})
         b=None
+        VelX=0
+        VelY=0
+        Mag=0
         while True:
             for event in pygame.event.get():
                 if event.type == MOUSEBUTTONDOWN:
@@ -103,10 +107,10 @@ class world:
                         b=False
                     if b==True:
                         if pygame.mouse.get_pos()[0]>225:
-                            v=v+[ball(pygame.mouse.get_pos(),(0,0),-10)]
+                            v=v+[ball(pygame.mouse.get_pos(),(float(VelX),-float(VelY)),float(Mag))]
                     else:
                         if pygame.mouse.get_pos()[0]>225:
-                            u=u+[carga(pygame.mouse.get_pos(),-10)]
+                            u=u+[carga(pygame.mouse.get_pos(),float(Mag))]
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
                         MENU().otra_pantalla()
@@ -118,8 +122,13 @@ class world:
                 if event.type == MOUSEBUTTONUP:
                     for boton in botones:
                         boton['on_click'] = False
-                for box in input_boxes:
-                    box.eventos(event)
+                Mag=mag.text
+                input_boxes[0].eventos(event)
+                VelY=vely.text
+                input_boxes[1].eventos(event)
+                VelX=velx.text
+                input_boxes[2].eventos(event)
+
             if botones[2]['on_click'] and click:
                 u=[]
                 v=[]
