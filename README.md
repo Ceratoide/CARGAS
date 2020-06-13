@@ -1,33 +1,41 @@
 # Simulador
-Se trata de un proyecto universitario el cual tiene como objetivo realizar simulaciones de eventos fÃ­sicos, tales como el movimiento 
+Se trata de un proyecto universitario el cual tiene como objetivo realizar simulaciones de eventos fí­sicos, tales como el movimiento 
 de cuerpo masivos alrededor de una estrella, movimiento de particulas atraves de un campo, entre otros. Este ultimo, el movimiento de 
-particulas, se esta llevando acabo y por el momento es el unico que tiene algÃºn desarrollo.
+particulas, se esta llevando acabo y por el momento es el unico que tiene algun desarrollo.
 
-Se esta trabajando en la interfaz de modo que aparezca un menÃº de manera que el jugador pueda interactuar directamente con la simulaciÃ³n
-sea el quien decida caracteristicas de la carga tales como: su signo, su posiciÃ³n, si va a ser una carga estacionario o de prueba, entre 
-otros aspectos que son fundamentales dentro de lo que se tiene planeado para la simulaciÃ³n
+Se esta trabajando en la interfaz de modo que aparezca un menú de manera que el jugador pueda interactuar directamente con la simulación
+sea el quien decida caracteristicas de la carga tales como: su signo, su posición, si va a ser una carga estacionario o de prueba, entre 
+otros aspectos que son fundamentales dentro de lo que se tiene planeado para la simulación.
 
 ## Funcionamiento
-Cabe aclarar que el funcionamiento del programa se encuentrÃ¡ en constantes cambios, esto debido a que se trabaja de manera continua,
-aÃ±adiendo cosas que lo complementen.
+Cabe aclarar que el funcionamiento del programa se encuentra en constantes cambios, esto debido a que se trabaja de manera continua,
+añadiendo cosas que lo complementen.
 
-Lo primero que aparecerÃ¡ en la pantalla serÃ¡ una imagen de inicio, en la cual para comenzar el juego es necesario presionar la tecla
-"p", esto abrira una nueva ventana con 4 cargas estacionarias, dos positivas y dos negativas. El simulador consiste, por ahora, en 
-colocar las cargas de prueba que se introduciran a la pantalla presionando el boton izquierdo del mouse, las cuales se moveran dependiendo
-de la distancia a la que se encuentre de cada una de las cargas estacionarias. 
+Lo primero que se verá al iniciar el simulador será la pantalla de inicio, donde encontraremos una imagen que hace alusión a James Clerk
+Maxwell, físico que dedujo las leyes del electromagnetismo, en esta se encontrará el boton de comenzar, el cual conducirá al simulador.
+Una vez dentro nos encontraremos con la interfaz ( aún en desarrollo ), esta nos permitirá dotar de varias caracteristicas a las cargas
+con las cuales se trabajará. En el primer recuadro se encuentran las dos opciones de cargas: estacionarias y de prueba, después se encuentra
+dos espacios que indican el valor del campo eléctrico y el potencial respectivamente, por ultimo, hay 3 casillas donde es posible intrudicr
+la magnitud y los componentes de la velocidad de la carga.
 
 ### Controles y botones
-  * Tecla p: da comienzo a la simulaciÃ³n
-  * Tecla q: da pausa al juego
-  * BotÃ³n izquierdo del mouse: Introduce cargas positivas de prueba, estas tendran la facultad de moverse por el campo
+  * Tecla q: da pausa al juego.
+  * Botón izquierdo del mouse: Introduce cargas al campo. Su magnitud y su velocidad se pueden modificar introduciendo valores en los 
+  espacios debajo donde se encuentra el nombre de esa caracteristica. 
+  
+  La velocidad presenta dos casillas debido a que el primero da la componente del vector velocidad en el eje x y el segundo al eje y. si
+  no se introduce ningun valor a la magnitud aparecerá un neutron, el cual no interactua con el campo al no tener carga.
+
 
 ### Cargas
-  * Cargas estacionarias: Estas no se moveran y generaran un campo que afectarÃ¡ el moviento de las cargas de prueba
-  * Cargas de prueba: Estas cargas serÃ¡n introducidas por el empleador del programa y su movimiento se ve definido por el campo que 
-   generan las cargas estacionarias, por ahora solo es posible incorporar cargas positivas.
+
+  * Cargas estacionarias: Estas no se moveran y generaran un campo que afectará el moviento de las cargas de prueba.
+  * Cargas de prueba: Estas cargas serán introducidas por el empleador del programa y su movimiento se ve definido por el campo que 
+   generan las cargas estacionarias.
 
 Tanto las cargas estacionarias como las cargas de prueba pueden ser positivas o negativas, de manera que las cargas de mismo signo
 se repelen y las de signo contrario se atraen. 
+
 
  
 
