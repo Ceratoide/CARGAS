@@ -183,6 +183,7 @@ class world:
 
         for box in input_boxes:
             box.pintar(self.screen)
+        
         pygame.display.flip()
         
     def visual():
@@ -197,7 +198,7 @@ class world:
         NEW=pygame.image.load("LIMPIAR.png")
         NEW_PULSO=pygame.image.load("LIMPIAR_OPRIMIDO.png")
         v=[]
-        u=[]
+        u=[carga((0,0),0)]
         botones = []
         r_boton_1_1 = ELECTRON.get_rect()
         r_boton_1_1.topleft = [40, 135]
@@ -209,8 +210,13 @@ class world:
         r_boton_3_3.topleft = [45, 510]
         botones.append({ 'imagen': NEW, 'imagen_pressed': NEW_PULSO, 'rect': r_boton_3_3, 'on_click': False})
         b=None
+        VelX=0
+        VelY=0
+        Mag=0
         while True:
+
             for event in pygame.event.get():
+
                 if event.type == MOUSEBUTTONDOWN:
                     
                     mouse = event.pos
@@ -223,14 +229,13 @@ class world:
                         b=False
                     if b==True:
                         if pygame.mouse.get_pos()[0]>225:
-                            v=v+[ball(pygame.mouse.get_pos(),(0,0),-10)]
+                            v=v+[ball(pygame.mouse.get_pos(),(float(VelX),-float(VelY)),float(Mag))]
                     else:
                         if pygame.mouse.get_pos()[0]>225:
-                            u=u+[carga(pygame.mouse.get_pos(),10)]
+                            u=u+[carga(pygame.mouse.get_pos(),float(Mag))]
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
                         MENU().otra_pantalla()
-                        #w.update()
 
                 if event.type==QUIT:
                     pygame.quit()
@@ -238,10 +243,17 @@ class world:
                 if event.type == MOUSEBUTTONUP:
                     for boton in botones:
                         boton['on_click'] = False
-                for box in input_boxes:
-                    box.eventos(event)
+
+
+                Mag=mag.text
+                input_boxes[0].eventos(event)
+                VelY=vely.text
+                input_boxes[1].eventos(event)
+                VelX=velx.text
+                input_boxes[2].eventos(event)
+
             if botones[2]['on_click'] and click:
-                u=[]
+                u=[carga((0,0),0)]
                 v=[]
 
             world(v,u).update(botones,input_boxes)

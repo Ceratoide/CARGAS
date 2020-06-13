@@ -2,15 +2,12 @@ import pygame,sys
 from pygame.locals import *
 import numpy as np
 
-
-
 class MENU:
     def __init__(self):
         
         pygame.init()
         pygame.display.set_caption("Simulador Campo Electrico ")
         self.imagen_boton = pygame.image.load("flecha.png")
-        self.BLANCO = (255, 255, 255)
         self.imagen_boton_pressed = pygame.image.load("flecha2.png")
         self.imagen_boton_2= pygame.transform.flip(self.imagen_boton, True, False)
         self.imagen_boton_pressed_2= pygame.transform.flip(self.imagen_boton_pressed, True, False)

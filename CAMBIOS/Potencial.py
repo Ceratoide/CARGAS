@@ -8,20 +8,22 @@ import matplotlib.backends.backend_agg as agg
 
 import pylab
 
-fig = pylab.figure(figsize=[8, 6], # Inches
-                   dpi=100,        # 100 dots per inch, so the resulting buffer is 400x400 pixels
-                   )
+fig = pylab.figure(figsize=[8, 6],dpi=100)
 ax = fig.gca()
 ax = fig.add_axes([0, 0, 1, 1])
 ax.axis('off')
-xx = np.linspace(0, 800,20)
-yy = np.linspace(0, 600,20)
+xx = np.linspace(0, 800,5)
+yy = np.linspace(0, 600,5)
 X, Y = np.meshgrid(xx, yy)
 canv = agg.FigureCanvasAgg(fig)
 renderer = canv.get_renderer()
-def raw_data(CARGA):
-    Z = carga.potencial(CARGA,(X,Y))
-    ax.contourf(X, Y, Z, 5)
+def raw_data(potenciales):
+    if len(potenciales)>0:
+        Z=carga.potencial(potenciales[0],(X,Y))
+        for i in potenciales:
+            if i!=potenciales[0]:
+                Z = Z+carga.potencial(i,(X,Y))
+        ax.contourf(X, Y, Z, 100)
 
     global canv
     canv.draw()
