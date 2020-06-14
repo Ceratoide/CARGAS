@@ -5,10 +5,11 @@ from Funciones import *
 from Menu import *
 from textos import *
 from Potencial import *
-
+import matplotlib as plt
+pote=False
 class world:
     def __init__(self,ball,cargas):
-        
+        global pote
         pygame.init()
         pygame.display.set_caption("Simulador Campo Electrico")
         programIcon = pygame.image.load('proton.png')
@@ -20,10 +21,13 @@ class world:
         self.tablero=pygame.image.load("Tab.png")
         self.fuente= pygame.font.Font('DS-DIGIB.TTF', 30)
         self.window = pygame.display.get_surface()
-        self.size = canv.get_width_height()
-        self.surf =pygame.image.load("fondo.png")
+        if pote==True:
+            self.surf = pygame.transform.flip(pygame.image.load("potencial.png"),False,True)
+
+        elif pote==False:
+            self.surf =pygame.image.load('fondo.png')
         self.surf=self.surf.convert()
-        self.window.blit(self.surf, (0,0))
+        self.window.blit(self.surf, (20,20))
     def dibujar_botones(self,lista_botones):
         panel = pygame.transform.scale(self.tablero, [800, 600])
         self.screen.blit(panel, [0, 0])
@@ -32,20 +36,24 @@ class world:
                 self.screen.blit(boton['imagen_pressed'], boton['rect'])
             else:
                 self.screen.blit(boton['imagen'], boton['rect'])
-    def update(self,lista_botones,input_boxes,POT=False):
+    def update(self,lista_botones,input_boxes,POT,update_potencial):
         self.clock.tick(10)   
-
+        global pote
         for o in self.ball :
-            self.screen.blit(self.surf,o.pos,o.pos)
+            self.screen.blit(self.surf,(o.pos[0]+20,o.pos[1]+20),o.pos)
         for i in range(len(self.ball)):
             for j in range(len(self.cargas)):
                 self.ball[i].col(self.cargas[j])
-        if POT==True :
-            self.window = pygame.display.get_surface()
-            self.size = canv.get_width_height()
-            self.surf = pygame.transform.flip(pygame.image.fromstring(raw_data(self.cargas), self.size, "RGB"),False,True)
-            self.surf=self.surf.convert()
-            self.window.blit(self.surf, (20,20))
+        
+        if update_potencial==True:
+            imagen(self.cargas)
+        if POT==True:
+            
+            pote=True
+        else:
+            
+            pote=False
+
         campo_total=0
         potencial_total=0
         for k in self.cargas:
@@ -106,7 +114,9 @@ class world:
         Mag=0
         pot=False
         n=0
+        
         while True:
+            update_potencial=False
             for event in pygame.event.get():
                 if event.type == MOUSEBUTTONDOWN:
                     
@@ -124,6 +134,7 @@ class world:
                     else:
                         if pygame.mouse.get_pos()[0]>225:
                             u=u+[carga(pygame.mouse.get_pos(),Mag)]
+                            update_potencial=True
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
                         MENU().otra_pantalla()
@@ -155,10 +166,13 @@ class world:
                 input_boxes[2].eventos(event)
 
             if botones[2]['on_click'] and click:
+                if len(u)>1:
+                    update_potencial=True
                 u=[carga((100,100),0)]
                 v=[]
             if botones[3]['on_click'] and click:
                 if len(u)>1:
+                    update_potencial=True
                     u.pop(-1)
             if botones[4]['on_click'] and click:
                 if n==0:
@@ -169,4 +183,4 @@ class world:
                     n=0
 
 
-            world(v,u).update(botones,input_boxes,pot)
+            world(v,u).update(botones,input_boxes,pot,update_potencial)
