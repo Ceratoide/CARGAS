@@ -18,6 +18,9 @@ con las cuales se trabajará. En el primer recuadro se encuentran las dos opcione
 dos espacios que indican el valor del campo eléctrico y el potencial respectivamente, por ultimo, hay 3 casillas donde es posible intrudicr
 la magnitud y los componentes de la velocidad de la carga.
 
+Al añadir cargas se pinta inmediatamente el fondo con el potencial, siendo el color amarillo un potencial positivo y el color morado un 
+potencial negativo.
+
 ### Controles y botones
   * Tecla q: da pausa al juego.
   * Botón izquierdo del mouse: Introduce cargas al campo. Su magnitud y su velocidad se pueden modificar introduciendo valores en los 
@@ -37,7 +40,9 @@ Tanto las cargas estacionarias como las cargas de prueba pueden ser positivas o 
 se repelen y las de signo contrario se atraen. 
 
 
- 
+## Trabajo en proceso
+ Se sabe como introducir el potencial como fondo, sin embargo, establecerlo vuelve muy lento el programa por lo que se estan mirando 
+ maneras de optimizar este problema. Con esto solucionado añadir como opción la visualización del campo electrico será muy similar.
 
 ## Autores
 - Jean Pierre Cifuentes
