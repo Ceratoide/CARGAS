@@ -7,6 +7,8 @@ class MENU:
         
         pygame.init()
         pygame.display.set_caption("Simulador Campo Electrico ")
+        programIcon = pygame.image.load('proton.png')
+        pygame.display.set_icon(programIcon)
         self.imagen_boton = pygame.image.load("flecha.png")
         self.imagen_boton_pressed = pygame.image.load("flecha2.png")
         self.imagen_boton_2= pygame.transform.flip(self.imagen_boton, True, False)

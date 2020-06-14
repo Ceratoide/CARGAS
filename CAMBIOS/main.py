@@ -10,7 +10,8 @@ class main:
         
         pygame.init()
         pygame.display.set_caption("Simulador Campo Electrico ")
-        
+        programIcon = pygame.image.load('proton.png')
+        pygame.display.set_icon(programIcon)
         self.imagen_boton = pygame.image.load("iniciar.png")
         self.imagen_boton_pressed = pygame.image.load("iniciar_oprimido.png")
         self.imagen_panel = pygame.image.load('INICIO.jpg')

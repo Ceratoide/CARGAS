@@ -27,13 +27,12 @@ class cajas_texto:
         if event.type == pygame.KEYDOWN:
             if self.active:
                 if event.key == pygame.K_RETURN:
-                    if self.text!='':
-                        self.text=float(self.text)
                     self.text = '0'
+                    
 
                 elif event.key == pygame.K_BACKSPACE:
                     self.text = self.text[:-1]
-                else:
+                elif len(self.text)<6:
                     self.text = self.text+ event.unicode
                 self.txt_surface = FONT.render(self.text, True, self.color)
        

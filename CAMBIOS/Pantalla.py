@@ -11,6 +11,8 @@ class world:
         
         pygame.init()
         pygame.display.set_caption("Simulador Campo Electrico")
+        programIcon = pygame.image.load('proton.png')
+        pygame.display.set_icon(programIcon)
         self.clock=pygame.time.Clock()
         self.ball=ball
         self.cargas=cargas
@@ -19,7 +21,7 @@ class world:
         self.fuente= pygame.font.Font('DS-DIGIB.TTF', 30)
         self.window = pygame.display.get_surface()
         self.size = canv.get_width_height()
-        self.surf =pygame.image.load("fondo-pared-ladrillos.jpg")
+        self.surf =pygame.image.load("fondo.png")
         self.surf=self.surf.convert()
         self.window.blit(self.surf, (0,0))
     def dibujar_botones(self,lista_botones):
@@ -38,7 +40,7 @@ class world:
         for i in range(len(self.ball)):
             for j in range(len(self.cargas)):
                 self.ball[i].col(self.cargas[j])
-        if POT==True:
+        if POT==True :
             self.window = pygame.display.get_surface()
             self.size = canv.get_width_height()
             self.surf = pygame.transform.flip(pygame.image.fromstring(raw_data(self.cargas), self.size, "RGB"),False,True)
@@ -118,10 +120,10 @@ class world:
                         b=False
                     if b==True:
                         if pygame.mouse.get_pos()[0]>225:
-                            v=v+[ball(pygame.mouse.get_pos(),(float(VelX),-float(VelY)),float(Mag))]
+                            v=v+[ball(pygame.mouse.get_pos(),(VelX,-VelY),Mag)]
                     else:
                         if pygame.mouse.get_pos()[0]>225:
-                            u=u+[carga(pygame.mouse.get_pos(),float(Mag))]
+                            u=u+[carga(pygame.mouse.get_pos(),Mag)]
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
                         MENU().otra_pantalla()
@@ -133,11 +135,23 @@ class world:
                 if event.type == MOUSEBUTTONUP:
                     for boton in botones:
                         boton['on_click'] = False
-                Mag=mag.text
+                try:
+                    Mag=float(mag.text)
+                except ValueError:
+                    Mag=float(0)
+                    
                 input_boxes[0].eventos(event)
-                VelY=vely.text
+                try:
+                    VelY=float(vely.text)
+                except ValueError:
+                    VelY=float(0)
+                    
                 input_boxes[1].eventos(event)
-                VelX=velx.text
+                try:
+                    VelX=float(velx.text)
+                except ValueError:
+                    VelX=float(0)
+                    
                 input_boxes[2].eventos(event)
 
             if botones[2]['on_click'] and click:
