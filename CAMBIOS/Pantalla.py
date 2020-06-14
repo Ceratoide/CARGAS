@@ -5,7 +5,6 @@ from Funciones import *
 from Menu import *
 from textos import *
 from Potencial import *
-import matplotlib as plt
 pote=False
 class world:
     def __init__(self,ball,cargas):
@@ -23,11 +22,10 @@ class world:
         self.window = pygame.display.get_surface()
         if pote==True:
             self.surf = pygame.transform.flip(pygame.image.load("potencial.png"),False,True)
-
         elif pote==False:
             self.surf =pygame.image.load('fondo.png')
         self.surf=self.surf.convert()
-        self.window.blit(self.surf, (20,20))
+        self.window.blit(self.surf, (0,0))
     def dibujar_botones(self,lista_botones):
         panel = pygame.transform.scale(self.tablero, [800, 600])
         self.screen.blit(panel, [0, 0])
@@ -40,7 +38,7 @@ class world:
         self.clock.tick(10)   
         global pote
         for o in self.ball :
-            self.screen.blit(self.surf,(o.pos[0]+20,o.pos[1]+20),o.pos)
+            self.screen.blit(self.surf,(o.pos[0],o.pos[1]),o.pos)
         for i in range(len(self.ball)):
             for j in range(len(self.cargas)):
                 self.ball[i].col(self.cargas[j])
@@ -128,12 +126,13 @@ class world:
                         b=True
                     if botones[1]['on_click'] and click:
                         b=False
+                    mouse=pygame.mouse.get_pos()
                     if b==True:
                         if pygame.mouse.get_pos()[0]>225:
-                            v=v+[ball(pygame.mouse.get_pos(),(VelX,-VelY),Mag)]
+                            v=v+[ball((mouse[0]-10,mouse[1]-10),(VelX,-VelY),Mag)]
                     else:
                         if pygame.mouse.get_pos()[0]>225:
-                            u=u+[carga(pygame.mouse.get_pos(),Mag)]
+                            u=u+[carga((mouse[0]-20,mouse[1]-20),Mag)]
                             update_potencial=True
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:

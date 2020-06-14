@@ -19,24 +19,19 @@ class carga(pygame.sprite.Sprite):
         k=8.9
         campo=[0,0]
         
-        dist=((punto[0]-self.pos[0])**(2)+(punto[1]-self.pos[1])**(2))**(3/2)
+        dist=((punto[0]-self.pos[0]-20)**(2)+(punto[1]-self.pos[1]-20)**(2))**(3/2)
         if dist!=0:
-            campo[0]=(self.magnitud*k*(punto[0]-self.pos[0]))/dist
-            campo[1]=(self.magnitud*k*(punto[1]-self.pos[1]))/dist
+            campo[0]=(self.magnitud*k*(punto[0]-self.pos[0]-20))/dist
+            campo[1]=(self.magnitud*k*(punto[1]-self.pos[1]-20))/dist
             return (campo[0],campo[1])
         else:
             return(0,0)
     def magnitud_campo(self,punto):
-        k=8.9
-        distancia=np.sqrt((punto[0]-self.pos[0])**(2)+(punto[1]-self.pos[1])**(2))
-        if distancia!=0:
-            magnitud=(self.magnitud*k)/distancia**2
-            return magnitud
-        else:
-            return 0
+        norma=np.sqrt(self.campo(punto)[0]**2+self.campo(punto)[1]**2)
+        return norma
     def potencial(self,punto):
         k=8.9
-        distancia=np.sqrt((punto[0]-self.pos[0])**(2)+(punto[1]-self.pos[1])**(2))
+        distancia=np.sqrt((punto[0]-self.pos[0]-20)**(2)+(punto[1]-self.pos[1]-20)**(2))
         if distancia.all()!=0:
             potencial=(self.magnitud*k)/distancia
             return potencial

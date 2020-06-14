@@ -1,11 +1,5 @@
 import matplotlib
-import numpy as np
 from Funciones import *
-matplotlib.use("Agg")
-
-import matplotlib.backends.backend_agg as agg
-matplotlib.rcParams.update({'figure.max_open_warning': 0})
-
 import pylab
 
 
@@ -14,8 +8,8 @@ def raw_data(potenciales):
     ax = fig.gca()
     ax = fig.add_axes([0, 0, 1, 1])
     ax.axis('off')
-    xx = np.linspace(0, 800,20)
-    yy = np.linspace(0, 600,20)
+    xx = np.linspace(0, 800,25)
+    yy = np.linspace(0, 600,25)
     X, Y = np.meshgrid(xx, yy)
 
     if len(potenciales)>0:
@@ -24,7 +18,11 @@ def raw_data(potenciales):
             if i!=potenciales[0]:
                 Z = Z+carga.potencial(i,(X,Y))
             
-        ax.contourf(X, Y, Z, 40)
+        
+        
+        ax.contourf(X, Y, Z, 30)
+        ax.contour(X,Y,Z,10,colors='k')
+
     return fig
 def imagen(potenciales):
     raw_data(potenciales).savefig('potencial.png')
