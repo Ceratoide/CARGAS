@@ -15,7 +15,7 @@ class MENU:
         self.clock=pygame.time.Clock()
         self.screen = pygame.display.set_mode((800, 600))
         self.fuente = pygame.font.SysFont('Courier', 20)
-        self.screen.blit(self.imagen_panel,(0,0))
+        
         
     def dibujar_botones_iniciales(self,lista_botones):
         panel = pygame.transform.scale(self.imagen_panel, [800, 600])

@@ -20,6 +20,7 @@ class cajas_texto:
             if self.rect.collidepoint(event.pos):
                 self.active = not self.active
                 self.text=''
+                
             else:
                 self.active = False
             self.color = COLOR_ACTIVE if self.active else COLOR_INACTIVE
