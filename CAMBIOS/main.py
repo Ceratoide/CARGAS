@@ -54,7 +54,7 @@ class main:
                 click = False
                 
                 
-
+            
             self.dibujar_botones_iniciales(botones)
             
 

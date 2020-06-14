@@ -4,7 +4,7 @@ from Funciones import *
 matplotlib.use("Agg")
 
 import matplotlib.backends.backend_agg as agg
-
+matplotlib.rcParams.update({'figure.max_open_warning': 0})
 
 import pylab
 
