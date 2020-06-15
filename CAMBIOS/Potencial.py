@@ -1,8 +1,8 @@
 import matplotlib
 from Funciones import *
 import pylab
-
-
+import gc
+matplotlib.use('Agg')
 def raw_data(potenciales):
     fig = pylab.figure(figsize=[8, 6],dpi=100)
     ax = fig.gca()
@@ -20,12 +20,15 @@ def raw_data(potenciales):
             
         
         
-        ax.contourf(X, Y, Z, 30)
+        ax.contourf(X, Y, Z, 30,cmap=matplotlib.cm.inferno)
         ax.contour(X,Y,Z,10,colors='k')
 
     return fig
 def imagen(potenciales):
     raw_data(potenciales).savefig('potencial.png')
+    raw_data(potenciales).clf()
+    gc.collect()
+    
 
 
 

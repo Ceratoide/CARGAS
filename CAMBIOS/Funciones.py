@@ -19,8 +19,8 @@ class carga(pygame.sprite.Sprite):
         k=8.9
         campo=[0,0]
         
-        dist=((punto[0]-self.pos[0]-20)**(2)+(punto[1]-self.pos[1]-20)**(2))**(3/2)
-        if dist!=0:
+        dist=np.sqrt((punto[0]-self.pos[0]-20)**(2)+(punto[1]-self.pos[1]-20)**(2))**3
+        if dist.all()!=0:
             campo[0]=(self.magnitud*k*(punto[0]-self.pos[0]-20))/dist
             campo[1]=(self.magnitud*k*(punto[1]-self.pos[1]-20))/dist
             return (campo[0],campo[1])

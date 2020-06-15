@@ -5,7 +5,9 @@ from Funciones import *
 from Menu import *
 from textos import *
 from Potencial import *
+from Lineas_Campo import *
 pote=False
+campe=False
 class world:
     def __init__(self,ball,cargas):
         global pote
@@ -22,7 +24,9 @@ class world:
         self.window = pygame.display.get_surface()
         if pote==True:
             self.surf = pygame.transform.flip(pygame.image.load("potencial.png"),False,True)
-        elif pote==False:
+        elif campe==True:
+            self.surf = pygame.transform.flip(pygame.image.load("campo.png"),False,True)
+        elif pote==False and campe==False:
             self.surf =pygame.image.load('fondo.png')
         self.surf=self.surf.convert()
         self.window.blit(self.surf, (0,0))
@@ -34,9 +38,10 @@ class world:
                 self.screen.blit(boton['imagen_pressed'], boton['rect'])
             else:
                 self.screen.blit(boton['imagen'], boton['rect'])
-    def update(self,lista_botones,input_boxes,POT,update_potencial):
+    def update(self,lista_botones,input_boxes,POT,update_potencial,CAMP):
         self.clock.tick(10)   
         global pote
+        global campe
         for o in self.ball :
             self.screen.blit(self.surf,(o.pos[0],o.pos[1]),o.pos)
         for i in range(len(self.ball)):
@@ -45,12 +50,15 @@ class world:
         
         if update_potencial==True:
             imagen(self.cargas)
+            imagencampo(self.cargas)
         if POT==True:
-            
             pote=True
         else:
-            
             pote=False
+        if CAMP==True:
+            campe=True
+        else:
+            campe=False
 
         campo_total=0
         potencial_total=0
@@ -88,6 +96,8 @@ class world:
         ULTIMO_PULSO=pygame.image.load("return_press.png")
         COZZETTI=pygame.image.load("POT.png")
         MAXIMO_COZZETTI=pygame.image.load("POT_PRESS.png")
+        CAMP=pygame.image.load("CAMP.png")
+        CAMP_PRESS=pygame.image.load("CAMP_PRESS.png")
         v=[]
         u=[carga((100,100),0)]
         botones = []
@@ -103,15 +113,22 @@ class world:
         r_boton_4_4 = ULTIMO.get_rect()
         r_boton_4_4.topleft = [155, 505]
         botones.append({ 'imagen': ULTIMO, 'imagen_pressed': ULTIMO_PULSO, 'rect': r_boton_4_4, 'on_click': False})
-        r_boton_5_5 = COZZETTI.get_rect()
+        r_boton_5_5 = CAMP.get_rect()
         r_boton_5_5.topleft = [40, 35]
         botones.append({ 'imagen': COZZETTI, 'imagen_pressed': MAXIMO_COZZETTI, 'rect': r_boton_5_5, 'on_click': False})
+        r_boton_6_6 = COZZETTI.get_rect()
+        r_boton_6_6.topleft = [40, 75]
+        botones.append({ 'imagen': CAMP, 'imagen_pressed': CAMP_PRESS, 'rect': r_boton_6_6, 'on_click': False})
+        
+        
         b=None
         VelX=0
         VelY=0
         Mag=0
         pot=False
+        camp=False
         n=0
+        l=0
         
         while True:
             update_potencial=False
@@ -180,6 +197,13 @@ class world:
                 elif n==1:
                     pot=False
                     n=0
+            if botones[5]['on_click'] and click:
+                if l==0:
+                    camp=True
+                    l=1
+                elif l==1:
+                    camp=False
+                    l=0
 
 
-            world(v,u).update(botones,input_boxes,pot,update_potencial)
+            world(v,u).update(botones,input_boxes,pot,update_potencial,camp)
