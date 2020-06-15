@@ -1,5 +1,7 @@
 import matplotlib
+import matplotlib.pyplot as plt
 from Funciones import *
+
 import pylab
 import gc
 matplotlib.use('Agg')
@@ -27,7 +29,9 @@ def raw_data(potenciales):
 def imagen(potenciales):
     raw_data(potenciales).savefig('potencial.png')
     raw_data(potenciales).clf()
+    plt.close(raw_data(potenciales))
     gc.collect()
+    
     
 
 

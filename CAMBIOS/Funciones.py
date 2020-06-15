@@ -40,7 +40,7 @@ class carga(pygame.sprite.Sprite):
    
 class ball(pygame.sprite.Sprite):
     
-    def __init__(self,pos, vel,magnitud,acel=(4,5)):
+    def __init__(self,pos, vel,magnitud,acel=(0,0)):
         if magnitud<0:
             self.image=pygame.image.load("electronchikito.png")
         if magnitud>0:

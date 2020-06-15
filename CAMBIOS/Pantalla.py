@@ -6,6 +6,7 @@ from Menu import *
 from textos import *
 from Potencial import *
 from Lineas_Campo import *
+from os import remove
 pote=False
 campe=False
 class world:
@@ -38,7 +39,7 @@ class world:
                 self.screen.blit(boton['imagen_pressed'], boton['rect'])
             else:
                 self.screen.blit(boton['imagen'], boton['rect'])
-    def update(self,lista_botones,input_boxes,POT,update_potencial,CAMP):
+    def update(self,lista_botones,input_boxes,POT,update_potencial,CAMP,update_campo):
         self.clock.tick(10)   
         global pote
         global campe
@@ -50,6 +51,7 @@ class world:
         
         if update_potencial==True:
             imagen(self.cargas)
+        if update_campo==True:
             imagencampo(self.cargas)
         if POT==True:
             pote=True
@@ -119,8 +121,6 @@ class world:
         r_boton_6_6 = COZZETTI.get_rect()
         r_boton_6_6.topleft = [40, 75]
         botones.append({ 'imagen': CAMP, 'imagen_pressed': CAMP_PRESS, 'rect': r_boton_6_6, 'on_click': False})
-        
-        
         b=None
         VelX=0
         VelY=0
@@ -129,9 +129,11 @@ class world:
         camp=False
         n=0
         l=0
-        
+        paso=True
         while True:
             update_potencial=False
+            update_campo=False
+            
             for event in pygame.event.get():
                 if event.type == MOUSEBUTTONDOWN:
                     
@@ -150,13 +152,28 @@ class world:
                     else:
                         if pygame.mouse.get_pos()[0]>225:
                             u=u+[carga((mouse[0]-20,mouse[1]-20),Mag)]
-                            update_potencial=True
+                            if botones[4]['on_click'] and click or pot==True:
+                                update_potencial=True
+                                update_campo=False
+                            elif botones[5]['on_click'] and click or camp==True:
+                                update_campo=True
+                                update_potencial=False
+                                
+                            
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
                         MENU().otra_pantalla()
-                        #w.update()
+                        
 
                 if event.type==QUIT:
+                    try:
+                        remove('potencial.png')
+                    except FileNotFoundError:
+                        pass
+                    try:
+                        remove('campo.png')
+                    except FileNotFountError:
+                        pass
                     pygame.quit()
                     sys.exit()
                 if event.type == MOUSEBUTTONUP:
@@ -182,28 +199,49 @@ class world:
                 input_boxes[2].eventos(event)
 
             if botones[2]['on_click'] and click:
+
                 if len(u)>1:
-                    update_potencial=True
-                u=[carga((100,100),0)]
-                v=[]
+                    u=[carga((100,100),0)]
+                    v=[]
+                    if pot==True:
+                        update_potencial=True
+                    if camp==True:
+                        update_campo=True
+
             if botones[3]['on_click'] and click:
                 if len(u)>1:
-                    update_potencial=True
+                    if pot==True:
+                        update_potencial=True
+                    if camp==True:
+                        update_campo=True
                     u.pop(-1)
-            if botones[4]['on_click'] and click:
+            if botones[4]['on_click'] and click and paso:
+                
                 if n==0:
                     pot=True
+                    update_potencial=True
+                    update_campo=False
                     n=1
                 elif n==1:
                     pot=False
+                    update_potencial=False
                     n=0
-            if botones[5]['on_click'] and click:
+                
+                
+            elif botones[5]['on_click'] and click:
+                
                 if l==0:
                     camp=True
+                    update_campo=True
+                    update_potencial=False
+                    paso=False
                     l=1
                 elif l==1:
                     camp=False
+                    update_campo=False
+                    paso=True
                     l=0
+                
 
 
-            world(v,u).update(botones,input_boxes,pot,update_potencial,camp)
+            world(v,u).update(botones,input_boxes,pot,update_potencial,camp,update_campo)
