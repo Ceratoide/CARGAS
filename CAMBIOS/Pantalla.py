@@ -172,7 +172,7 @@ class world:
                         pass
                     try:
                         remove('campo.png')
-                    except FileNotFountError:
+                    except FileNotFoundError:
                         pass
                     pygame.quit()
                     sys.exit()
