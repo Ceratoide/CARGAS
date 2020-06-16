@@ -216,7 +216,6 @@ class world:
                         update_campo=True
                     u.pop(-1)
             if botones[4]['on_click'] and click and paso:
-                
                 if n==0:
                     pot=True
                     update_potencial=True
@@ -226,10 +225,7 @@ class world:
                     pot=False
                     update_potencial=False
                     n=0
-                
-                
             elif botones[5]['on_click'] and click:
-                
                 if l==0:
                     camp=True
                     update_campo=True
@@ -241,7 +237,4 @@ class world:
                     update_campo=False
                     paso=True
                     l=0
-                
-
-
             world(v,u).update(botones,input_boxes,pot,update_potencial,camp,update_campo)
