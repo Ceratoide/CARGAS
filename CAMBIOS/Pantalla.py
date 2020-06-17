@@ -16,6 +16,7 @@ class world:
         pygame.display.set_caption("Simulador Campo Electrico")
         programIcon = pygame.image.load('proton.png')
         pygame.display.set_icon(programIcon)
+        self.barra=False
         self.clock=pygame.time.Clock()
         self.ball=ball
         self.cargas=cargas
@@ -25,15 +26,23 @@ class world:
         self.window = pygame.display.get_surface()
         if pote==True:
             self.surf = pygame.transform.flip(pygame.image.load("potencial.png"),False,True)
+            self.barra=True
         elif campe==True:
             self.surf = pygame.transform.flip(pygame.image.load("campo.png"),False,True)
+            self.barra=False
         elif pote==False and campe==False:
             self.surf =pygame.image.load('fondo.png')
+            self.barra=False
         self.surf=self.surf.convert()
         self.window.blit(self.surf, (0,0))
+
     def dibujar_botones(self,lista_botones):
         panel = pygame.transform.scale(self.tablero, [800, 600])
+        
         self.screen.blit(panel, [0, 0])
+        if self.barra:
+            self.window.blit(pygame.image.load("barra.png"), (240,480))
+
         for boton in lista_botones:
             if boton['on_click']:
                 self.screen.blit(boton['imagen_pressed'], boton['rect'])
@@ -51,6 +60,7 @@ class world:
         
         if update_potencial==True:
             imagen(self.cargas)
+            
         if update_campo==True:
             imagencampo(self.cargas)
         if POT==True:
@@ -172,6 +182,10 @@ class world:
                         pass
                     try:
                         remove('campo.png')
+                    except FileNotFoundError:
+                        pass
+                    try:
+                        remove('barra.png')
                     except FileNotFoundError:
                         pass
                     pygame.quit()
