@@ -2,11 +2,13 @@ import pygame,sys
 from pygame.locals import *
 import numpy as np
 from Funciones import *
-from Menu import *
+
 from textos import *
 from Potencial import *
 from Lineas_Campo import *
+from Guardador import *
 from os import remove
+import os.path as path
 pote=False
 campe=False
 class world:
@@ -22,6 +24,7 @@ class world:
         self.cargas=cargas
         self.screen = pygame.display.set_mode((800, 600))
         self.tablero=pygame.image.load("Tab.png")
+        self.line=pygame.image.load('line.png')
         self.fuente= pygame.font.Font('DS-DIGIB.TTF', 30)
         self.window = pygame.display.get_surface()
         if pote==True:
@@ -38,8 +41,12 @@ class world:
 
     def dibujar_botones(self,lista_botones):
         panel = pygame.transform.scale(self.tablero, [800, 600])
-        
+        line1=self.line
+        line2=pygame.transform.rotate(self.line, 90)
         self.screen.blit(panel, [0, 0])
+        if 15<pygame.mouse.get_pos()[1]<460 and 225<pygame.mouse.get_pos()[0]<775:
+            self.screen.blit(line1, (225,pygame.mouse.get_pos()[1]))
+            self.screen.blit(line2, (pygame.mouse.get_pos()[0],458))
         if self.barra:
             self.window.blit(pygame.image.load("barra.png"), (240,480))
 
@@ -48,16 +55,19 @@ class world:
                 self.screen.blit(boton['imagen_pressed'], boton['rect'])
             else:
                 self.screen.blit(boton['imagen'], boton['rect'])
-    def update(self,lista_botones,input_boxes,POT,update_potencial,CAMP,update_campo):
+    def update(self,lista_botones,input_boxes,POT,update_potencial,CAMP,update_campo,GUARDAR):
         self.clock.tick(10)   
         global pote
         global campe
         for o in self.ball :
-            self.screen.blit(self.surf,(o.pos[0],o.pos[1]),o.pos)
-        for i in range(len(self.ball)):
-            for j in range(len(self.cargas)):
-                self.ball[i].col(self.cargas[j])
-        
+            self.screen.blit(self.surf,o.pos,o.pos)
+            o.move(self.cargas)
+        b=0
+        if GUARDAR:
+            while path.exists('Creaciones\Campo_y_Potencial_{:}.png'.format(b)):
+                b=b+1
+            imagen_toda(self.cargas,b)
+            
         if update_potencial==True:
             imagen(self.cargas)
             
@@ -77,18 +87,24 @@ class world:
         for k in self.cargas:
             self.screen.blit(k.image,k.pos)
             for o in self.ball:
+                o.col(k)
                 
-                o.acel=o.fuerza(k)
-                o.move(k)
+                
                 self.screen.blit(o.image,o.pos)
             campo_total=campo_total+carga.magnitud_campo(k,pygame.mouse.get_pos())
             potencial_total=potencial_total+carga.potencial(k,pygame.mouse.get_pos())
         texto=self.fuente.render("{:.3f}".format(campo_total), 0, (0, 0, 0))
         texto2=self.fuente.render("{:.3f}".format(potencial_total), 0, (0, 0, 0))
+        ejex=(pygame.mouse.get_pos()[0]/80)-2.91
+        ejey=-(pygame.mouse.get_pos()[1]/80)+5.7
+        textposx=self.fuente.render("{:.2f}".format(ejex), 0, (255, 255, 255))
+        textposy=self.fuente.render("{:.2f}".format(ejey), 0, (255, 255, 255))
         self.dibujar_botones(lista_botones)
         self.screen.blit(texto, (20,243))
         self.screen.blit(texto2, (20,315))
-
+        if ejex>0 and ejey>0:
+            self.screen.blit(textposx, (650,499))
+            self.screen.blit(textposy, (715,499))
         for box in input_boxes:
             box.pintar(self.screen)
         pygame.display.flip()
@@ -110,6 +126,8 @@ class world:
         MAXIMO_COZZETTI=pygame.image.load("POT_PRESS.png")
         CAMP=pygame.image.load("CAMP.png")
         CAMP_PRESS=pygame.image.load("CAMP_PRESS.png")
+        SAVE=pygame.image.load("save.png")
+        SAVE_PRESS=pygame.image.load("save_press.png")
         v=[]
         u=[carga((100,100),0)]
         botones = []
@@ -131,6 +149,11 @@ class world:
         r_boton_6_6 = COZZETTI.get_rect()
         r_boton_6_6.topleft = [40, 75]
         botones.append({ 'imagen': CAMP, 'imagen_pressed': CAMP_PRESS, 'rect': r_boton_6_6, 'on_click': False})
+        r_boton_7_7 = SAVE.get_rect()
+        r_boton_7_7.topleft = [642, 536]
+        botones.append({ 'imagen': SAVE, 'imagen_pressed': SAVE_PRESS, 'rect': r_boton_7_7, 'on_click': False})
+        
+        
         b=None
         VelX=0
         VelY=0
@@ -140,10 +163,11 @@ class world:
         n=0
         l=0
         paso=True
-        while True:
+        Ejecucion=True
+        while Ejecucion==True:
             update_potencial=False
             update_campo=False
-            
+            GUARDAR=False
             for event in pygame.event.get():
                 if event.type == MOUSEBUTTONDOWN:
                     
@@ -172,7 +196,7 @@ class world:
                             
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
-                        MENU().otra_pantalla()
+                        Ejecucion=False
                         
 
                 if event.type==QUIT:
@@ -250,4 +274,8 @@ class world:
                     update_campo=False
                     paso=True
                     l=0
-            world(v,u).update(botones,input_boxes,pot,update_potencial,camp,update_campo)
+            if botones[6]['on_click'] and click:
+                GUARDAR=True
+                
+                    
+            world(v,u).update(botones,input_boxes,pot,update_potencial,camp,update_campo,GUARDAR)

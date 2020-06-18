@@ -6,7 +6,7 @@ from Pantalla import *
 from Menu import *
 
 class main:
-    def __init__(self,text=''):
+    def __init__(self):
         
         pygame.init()
         pygame.display.set_caption("Simulador Campo Electrico ")
@@ -50,7 +50,7 @@ class main:
 
 
             if botones[0]['on_click'] and click:
-                world.visual()
+                MENU().otra_pantalla()
                 click = False
                 
                 

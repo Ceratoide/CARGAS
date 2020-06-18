@@ -74,12 +74,15 @@ class ball(pygame.sprite.Sprite):
         
             
 
-    def move(self,CARGA):
-        if CARGA.pos[0]==self.pos[0] and CARGA.pos[1]==self.pos[1]:
-            self.vel=self.vel-self.vel
+    def move(self,o):
+        FUERZA=[0,0]
+        for i in o:
+            FUERZA[0]=FUERZA[0]+self.fuerza(i)[0]
+            FUERZA[1]=FUERZA[1]+self.fuerza(i)[1]            
         vx,vy=self.vel[0]*(self.pix)*10,self.vel[1]*(self.pix)*10
+        
         ax,ay=self.acel
-        self.vel=self.vel+self.acel
+        self.vel=self.vel+(FUERZA[0],FUERZA[1])
         self.pos = self.pos.move(vx,vy)
         
 

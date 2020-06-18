@@ -1,17 +1,17 @@
 import pygame 
-pygame.init()
-COLOR_INACTIVE = pygame.Color('black')
-COLOR_ACTIVE = pygame.Color('blue')
-FONT = pygame.font.Font('DS-DIGIB.TTF', 25)
+
 
 
 class cajas_texto:
-
     def __init__(self, x, y, w, h, text='0'):
+        pygame.init()
+        self.COLOR_INACTIVE = pygame.Color('black')
+        self.COLOR_ACTIVE = pygame.Color('blue')
+        self.FONT = pygame.font.Font('DS-DIGIB.TTF', 25)
         self.rect = pygame.Rect(x, y, w, h)
-        self.color = COLOR_INACTIVE
+        self.color = self.COLOR_INACTIVE
         self.text = text
-        self.txt_surface = FONT.render(text, True, self.color)
+        self.txt_surface = self.FONT.render(text, True, self.color)
         self.active = False
     
     def eventos(self, event):
@@ -23,7 +23,7 @@ class cajas_texto:
                 
             else:
                 self.active = False
-            self.color = COLOR_ACTIVE if self.active else COLOR_INACTIVE
+            self.color = self.COLOR_ACTIVE if self.active else self.COLOR_INACTIVE
         if event.type == pygame.KEYDOWN:
             if self.active:
                 if event.key == pygame.K_RETURN:
@@ -34,7 +34,7 @@ class cajas_texto:
                     self.text = self.text[:-1]
                 elif len(self.text)<6:
                     self.text = self.text+ event.unicode
-                self.txt_surface = FONT.render(self.text, True, self.color)
+                self.txt_surface = self.FONT.render(self.text, True, self.color)
        
 
 
