@@ -83,8 +83,8 @@ class world:
                 self.screen.blit(o.image,o.pos)
             campo_total=campo_total+carga.magnitud_campo(k,pygame.mouse.get_pos())
             potencial_total=potencial_total+carga.potencial(k,pygame.mouse.get_pos())
-        texto=self.fuente.render("{:.5f}".format(campo_total), 0, (0, 0, 0))
-        texto2=self.fuente.render("{:.5f}".format(potencial_total), 0, (0, 0, 0))
+        texto=self.fuente.render("{:.3f}".format(campo_total), 0, (0, 0, 0))
+        texto2=self.fuente.render("{:.3f}".format(potencial_total), 0, (0, 0, 0))
         self.dibujar_botones(lista_botones)
         self.screen.blit(texto, (20,243))
         self.screen.blit(texto2, (20,315))
@@ -157,10 +157,10 @@ class world:
                         b=False
                     mouse=pygame.mouse.get_pos()
                     if b==True:
-                        if pygame.mouse.get_pos()[0]>225:
+                        if pygame.mouse.get_pos()[0]>225 and pygame.mouse.get_pos()[1]<460:
                             v=v+[ball((mouse[0]-10,mouse[1]-10),(VelX,-VelY),Mag)]
                     else:
-                        if pygame.mouse.get_pos()[0]>225:
+                        if pygame.mouse.get_pos()[0]>225 and pygame.mouse.get_pos()[1]<460:
                             u=u+[carga((mouse[0]-20,mouse[1]-20),Mag)]
                             if botones[4]['on_click'] and click or pot==True:
                                 update_potencial=True
@@ -213,10 +213,10 @@ class world:
                 input_boxes[2].eventos(event)
 
             if botones[2]['on_click'] and click:
-
+                v=[]
                 if len(u)>1:
                     u=[carga((100,100),0)]
-                    v=[]
+                    
                     if pot==True:
                         update_potencial=True
                     if camp==True:
