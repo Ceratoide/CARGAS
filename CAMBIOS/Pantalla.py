@@ -216,7 +216,6 @@ class world:
                 v=[]
                 if len(u)>1:
                     u=[carga((100,100),0)]
-                    
                     if pot==True:
                         update_potencial=True
                     if camp==True:

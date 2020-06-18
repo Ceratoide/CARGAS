@@ -18,7 +18,7 @@ def raw_data(potenciales):
             if i!=potenciales[0]:
                 Z = Z+carga.potencial(i,(X,Y))
         
-        ax.contourf(X, Y, Z, 50,cmap=matplotlib.cm.inferno)
+        ax.contourf(X, Y, Z, 90,cmap=matplotlib.cm.inferno)
         ax.contour(X,Y,Z,90,colors='k')
     
     return fig
@@ -37,7 +37,7 @@ def barra(potenciales):
     fig,ax = plt.subplots()
 
     mpb=plt.contourf(X, Y, Z, 50,cmap=matplotlib.cm.inferno)
-    plt.colorbar(mpb,ax=ax,fraction=0.20,orientation="horizontal",shrink=1.3,aspect=9)
+    plt.colorbar(mpb,ax=ax,fraction=0.20,orientation="horizontal",shrink=1.1,aspect=8)
     ax.remove()
         
     return fig
