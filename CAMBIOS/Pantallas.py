@@ -32,9 +32,10 @@ class PANTALLAS:
                 self.screen.blit(boton['imagen'], boton['rect'])
 
                 
-    def otra_pantalla(self,otra_pantalla=True):
+    def otra_pantalla(self):
         self.clock.tick(10)    
         botones = []
+        otra_pantalla=True
         r_boton_1_1 = self.imagen_boton.get_rect()
         r_boton_1_1.topleft = [670, 540]
         botones.append({ 'imagen': self.imagen_boton, 'imagen_pressed': self.imagen_boton_pressed, 'rect': r_boton_1_1, 'on_click': False})
@@ -44,7 +45,7 @@ class PANTALLAS:
         r_boton_3_3 = self.volti.get_rect()
         r_boton_3_3.topleft = [325, 320]
         botones.append({ 'imagen': self.volti, 'imagen_pressed': self.volti_otro, 'rect': r_boton_3_3, 'on_click': False})
-        
+        perro=False
         while otra_pantalla:
             for event in pygame.event.get():
                 if event.type==QUIT:
@@ -62,7 +63,9 @@ class PANTALLAS:
 
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
-                        otra_pantalla = False
+                        perro=True
+            if perro:   
+                otra_pantalla = False
                         
             if botones[0]['on_click'] and click:
                 self.imagen_panel = pygame.image.load('fondo-pared-ladrillos.jpg')

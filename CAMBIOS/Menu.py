@@ -73,10 +73,7 @@ class MENU:
                         
                 if botones[0]['on_click'] and click:
                     world.visual()
-                if botones[1]['on_click'] and click:
-                    PANTALLAS().otra_pantalla()
-                if botones[2]['on_click'] and click:
-                    INSTRUCCIONES().otra_pantalla()
+
 
             
             self.dibujar_botones_iniciales(botones)

@@ -14,6 +14,11 @@ class main:
         pygame.display.set_icon(programIcon)
         self.imagen_boton = pygame.image.load("iniciar.png")
         self.imagen_boton_pressed = pygame.image.load("iniciar_oprimido.png")
+        self.pantallas=pygame.image.load('PANTA.png')
+        self.pantallas_press=pygame.image.load("press.png")
+        self.sortir=pygame.image.load('SALIR.png')
+        self.sortir_press=pygame.image.load('SALIR_PRESS.png')
+        self.instrucciones= pygame.image.load('INSTRU.png')
         self.imagen_panel = pygame.image.load('INICIO.jpg')
         self.clock=pygame.time.Clock()
         self.screen = pygame.display.set_mode((800, 600))
@@ -35,7 +40,21 @@ class main:
         r_boton_1_1 = self.imagen_boton.get_rect()
         r_boton_1_1.topleft = [400, 270]
         botones.append({ 'imagen': self.imagen_boton, 'imagen_pressed': self.imagen_boton_pressed, 'rect': r_boton_1_1, 'on_click': False})
-       
+        r_boton_2_2 = self.pantallas.get_rect()
+        r_boton_2_2.topleft = [475, 365]
+        botones.append({ 'imagen': self.pantallas_press, 'imagen_pressed': self.pantallas, 'rect': r_boton_2_2, 'on_click': False})
+        r_boton_3_3 = self.pantallas.get_rect()
+        r_boton_3_3.topleft = [475, 440]
+        botones.append({ 'imagen': self.pantallas_press, 'imagen_pressed': self.instrucciones, 'rect': r_boton_3_3, 'on_click': False})
+        r_boton_4_4 = self.sortir.get_rect()
+        r_boton_4_4.topleft = [360, 470]
+        botones.append({ 'imagen': self.sortir, 'imagen_pressed': self.sortir_press, 'rect': r_boton_4_4, 'on_click': False})
+        
+        
+        
+        
+        
+        
         while otra_pantalla:
             for event in pygame.event.get():
                 if event.type==QUIT:
@@ -50,7 +69,7 @@ class main:
 
 
             if botones[0]['on_click'] and click:
-                MENU().otra_pantalla()
+                world.visual()
                 click = False
                 
                 
