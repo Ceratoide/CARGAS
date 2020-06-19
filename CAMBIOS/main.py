@@ -4,6 +4,7 @@ import numpy as np
 from Funciones import *
 from Pantalla import *
 from Menu import *
+from Pantallas import *
 
 class main:
     def __init__(self):
@@ -14,11 +15,11 @@ class main:
         pygame.display.set_icon(programIcon)
         self.imagen_boton = pygame.image.load("iniciar.png")
         self.imagen_boton_pressed = pygame.image.load("iniciar_oprimido.png")
-        self.pantallas=pygame.image.load('PANTA.png')
+        self.pantallas=pygame.image.load('INSTRU.png')
         self.pantallas_press=pygame.image.load("press.png")
         self.sortir=pygame.image.load('SALIR.png')
         self.sortir_press=pygame.image.load('SALIR_PRESS.png')
-        self.instrucciones= pygame.image.load('INSTRU.png')
+        self.instrucciones= pygame.image.load('PANTA.png')
         self.imagen_panel = pygame.image.load('INICIO.jpg')
         self.clock=pygame.time.Clock()
         self.screen = pygame.display.set_mode((800, 600))
@@ -71,6 +72,18 @@ class main:
             if botones[0]['on_click'] and click:
                 world.visual()
                 click = False
+
+            if botones[1]['on_click'] and click:
+                INSTRUCCIONES().otra_pantalla()
+                click = False
+
+            if botones[2]['on_click'] and click:
+                PANTALLAS().otra_pantalla()
+                click = False
+
+            if botones[3]['on_click'] and click:
+                pygame.quit()
+                sys.exit()
                 
                 
             

@@ -108,7 +108,7 @@ class world:
             box.pintar(self.screen)
         pygame.display.flip()
         
-    def visual():
+    def visual(pantalla1=False,pantalla2=False,pantalla3=False):
         mag = cajas_texto(13, 391, 195, 32)
         velx = cajas_texto(13, 460, 100, 32)
         vely = cajas_texto(112, 460, 95, 32)
@@ -163,6 +163,23 @@ class world:
         l=0
         paso=True
         Ejecucion=True
+        
+        if pantalla1:
+            p=np.arange(0,2*np.pi,np.pi/10)
+            for i in p:
+                X=100*np.cos(i)+500
+                Y=100*np.sin(i)+200
+                u=u+[carga((X,Y),0)]
+                x=50*np.cos(i)+510
+                y=50*np.sin(i)+210
+                v=v+[ball((x,y),(0,0),(10*(-1)**(i*(10/np.pi))))]
+        p=np.arange(150,850,30)
+        for i in p:
+            u=u+[carga((i,300),15)]
+            u=u+[carga((i,100),-15)]
+        
+
+        
         while Ejecucion==True:
             update_potencial=False
             update_campo=False
@@ -275,6 +292,7 @@ class world:
                     l=0
             if botones[6]['on_click'] and click:
                 GUARDAR=True
-                
-                    
+            
+
+
             world(v,u).update(botones,input_boxes,pot,update_potencial,camp,update_campo,GUARDAR)

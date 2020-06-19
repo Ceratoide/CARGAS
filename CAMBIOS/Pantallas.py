@@ -1,7 +1,7 @@
 import pygame,sys
 from pygame.locals import *
 import numpy as np
-
+from Pantalla import *
 class PANTALLAS:
     def __init__(self):
         
@@ -19,11 +19,15 @@ class PANTALLAS:
         self.clock=pygame.time.Clock()
         self.screen = pygame.display.set_mode((800, 600))
         self.fuente = pygame.font.SysFont('Courier', 20)
+        self.anillo = pygame.image.load("carga_en_anillo.png")
+        self.pantalla=self.anillo
+       
         
         
     def dibujar_botones_iniciales(self,otra_lista):
         panel = pygame.transform.scale(self.imagen_panel, [800, 600])
         self.screen.blit(panel, [0, 0])
+        self.screen.blit(self.pantalla,(288,72))
         for boton in otra_lista:
             
             if boton['on_click']:
@@ -68,15 +72,19 @@ class PANTALLAS:
                 otra_pantalla = False
                         
             if botones[0]['on_click'] and click:
-                self.imagen_panel = pygame.image.load('fondo-pared-ladrillos.jpg')
-                
+                self.pantalla=self.anillo
                 click = False
-                
             if botones[1]['on_click'] and click:
-                self.imagen_panel = pygame.image.load('MENU.jpg')
-                botones.append({ 'imagen': self.volti, 'imagen_pressed': self.volti_otro, 'rect': r_boton_3_3, 'on_click': False})
+                self.pantalla=self.constante
                 click = False
-
+            if botones[2]['on_click'] and click:
+                if self.pantalla==self.anillo:
+                    world.visual(pantalla1=True)
+                elif self.pantalla==self.constante:
+                    world.visual(pantalla2=True) 
+                elif self.pantalla==self.constante:
+                    world.visual(pantalla3=True)
+                click = False
             
             self.dibujar_botones_iniciales(botones)
 
