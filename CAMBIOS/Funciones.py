@@ -110,3 +110,25 @@ class ball(pygame.sprite.Sprite):
             return True
         
         return 
+    
+class detector(pygame.sprite.Sprite):
+    def __init__(self,pos):
+        self.image=pygame.image.load('detector.png')
+        self.image_pos=pygame.image.load('detector_pos.png')
+        self.image_neg=pygame.image.load('detector_neg.png')
+        self.imagen=self.image
+        px,py=pos
+        self.pos=self.imagen.get_rect().move(px,py)
+        self.mask=pygame.mask.from_surface(self.imagen)
+        self.rect=self.pos
+    def detectar(self,carga):
+        if carga.magnitud_campo(self.pos)>0:
+            self.imagen=self.image_pos
+        elif carga.magnitud_campo(self.pos)<0:
+            self.imagen=self.image_neg
+        else:
+            self.imagen=self.image
+            
+        
+
+        

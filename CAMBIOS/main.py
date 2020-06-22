@@ -54,8 +54,7 @@ class main:
         
         
         
-        
-        
+    
         while otra_pantalla:
             for event in pygame.event.get():
                 if event.type==QUIT:

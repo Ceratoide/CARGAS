@@ -15,19 +15,29 @@ class PANTALLAS:
         self.imagen_boton_pressed_2= pygame.transform.flip(self.imagen_boton_pressed, True, False)
         self.volti=pygame.image.load("volti.png")
         self.volti_otro=pygame.transform.flip(self.volti,True,False)
-        self.imagen_panel = pygame.image.load('MENU.jpg')
+        self.imagen_panel = pygame.image.load('pantallass.jpg')
         self.clock=pygame.time.Clock()
         self.screen = pygame.display.set_mode((800, 600))
         self.fuente = pygame.font.SysFont('Courier', 20)
         self.anillo = pygame.image.load("carga_en_anillo.png")
-        self.pantalla=self.anillo
-       
+        self.constante=pygame.image.load("constante.png")
+        self.dipolo=pygame.image.load('dipolo.png')
+        self.text_anillo=pygame.image.load('ANILLO.png')
+        self.text_constante=pygame.image.load('CONS.png')
+        self.text_dipolo=pygame.image.load('DIPOL.png')
+        self.selector=pygame.image.load('selector.png')
+        self.start=pygame.image.load('INICIARP.png')
+        self.pantalla=self.text_anillo
         
-        
-    def dibujar_botones_iniciales(self,otra_lista):
+    def dibujar_botones_iniciales(self,otra_lista,b):
         panel = pygame.transform.scale(self.imagen_panel, [800, 600])
         self.screen.blit(panel, [0, 0])
-        self.screen.blit(self.pantalla,(288,72))
+        self.screen.blit(self.anillo,(51,72))
+        self.screen.blit(self.constante,(303,72))
+        self.screen.blit(self.dipolo,(555,72))
+        self.screen.blit(self.pantalla,(120,330))
+        self.screen.blit(self.selector,(b,72))
+        
         for boton in otra_lista:
             
             if boton['on_click']:
@@ -41,15 +51,17 @@ class PANTALLAS:
         botones = []
         otra_pantalla=True
         r_boton_1_1 = self.imagen_boton.get_rect()
-        r_boton_1_1.topleft = [670, 540]
+        r_boton_1_1.topleft = [270, 540]
         botones.append({ 'imagen': self.imagen_boton, 'imagen_pressed': self.imagen_boton_pressed, 'rect': r_boton_1_1, 'on_click': False})
-        r_boton_2_2 = self.imagen_boton.get_rect()
-        r_boton_2_2.topleft = [550, 540]
+        r_boton_2_2 = self.imagen_boton_2.get_rect()
+        r_boton_2_2.topleft = [150, 540]
         botones.append({ 'imagen': self.imagen_boton_2, 'imagen_pressed': self.imagen_boton_pressed_2, 'rect': r_boton_2_2, 'on_click': False})
-        r_boton_3_3 = self.volti.get_rect()
-        r_boton_3_3.topleft = [325, 320]
-        botones.append({ 'imagen': self.volti, 'imagen_pressed': self.volti_otro, 'rect': r_boton_3_3, 'on_click': False})
-        perro=False
+        r_boton_3_3 = self.start.get_rect()
+        r_boton_3_3.topleft = [200, 480]
+        botones.append({ 'imagen': self.start, 'imagen_pressed': self.start, 'rect': r_boton_3_3, 'on_click': False})
+        
+        b=51
+        segundo=False
         while otra_pantalla:
             for event in pygame.event.get():
                 if event.type==QUIT:
@@ -67,26 +79,45 @@ class PANTALLAS:
 
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
-                        perro=True
-            if perro:   
-                otra_pantalla = False
+                        otra_pantalla = False
+
                         
             if botones[0]['on_click'] and click:
-                self.pantalla=self.anillo
-                click = False
+                if segundo==False:
+                    self.pantalla=self.text_constante
+                    b=303
+                    segundo=True
+                    click = False
+                else:
+                    self.pantalla=self.text_dipolo
+                    b=555
+                    click = False
+                
             if botones[1]['on_click'] and click:
-                self.pantalla=self.constante
-                click = False
+                if segundo==False:
+                    self.pantalla=self.text_anillo
+                    b=51
+                    click = False
+                else:
+                    self.pantalla=self.text_constante
+                    b=303
+                    segundo=False
+                    click = False
             if botones[2]['on_click'] and click:
-                if self.pantalla==self.anillo:
+                if self.pantalla==self.text_anillo:
                     world.visual(pantalla1=True)
-                elif self.pantalla==self.constante:
-                    world.visual(pantalla2=True) 
-                elif self.pantalla==self.constante:
+                elif self.pantalla==self.text_constante:
+                    world.visual(pantalla2=True)
+                elif self.pantalla==self.text_dipolo:
                     world.visual(pantalla3=True)
                 click = False
+                    
+                
+                    
+
+
             
-            self.dibujar_botones_iniciales(botones)
+            self.dibujar_botones_iniciales(botones,b)
 
             
             

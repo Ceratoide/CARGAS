@@ -11,7 +11,7 @@ import os.path as path
 pote=False
 campe=False
 class world:
-    def __init__(self,ball,cargas):
+    def __init__(self,ball,cargas,detector):
         global pote
         pygame.init()
         pygame.display.set_caption("Simulador Campo Electrico")
@@ -21,6 +21,7 @@ class world:
         self.clock=pygame.time.Clock()
         self.ball=ball
         self.cargas=cargas
+        self.detector=detector
         self.screen = pygame.display.set_mode((800, 600))
         self.tablero=pygame.image.load("Tab.png")
         self.line=pygame.image.load('line.png')
@@ -58,6 +59,8 @@ class world:
         self.clock.tick(10)   
         global pote
         global campe
+
+
         for o in self.ball :
             self.screen.blit(self.surf,o.pos,o.pos)
             o.move(self.cargas)
@@ -83,13 +86,18 @@ class world:
 
         campo_total=0
         potencial_total=0
+
         for k in self.cargas:
             self.screen.blit(k.image,k.pos)
+            for i in self.detector:
+                i.detectar(k)
+                self.screen.blit(i.imagen,i.pos)
             for o in self.ball:
                 o.col(k)
-                
-                
                 self.screen.blit(o.image,o.pos)
+
+
+                
             campo_total=campo_total+carga.magnitud_campo(k,pygame.mouse.get_pos())
             potencial_total=potencial_total+carga.potencial(k,pygame.mouse.get_pos())
         texto=self.fuente.render("{:.3f}".format(campo_total), 0, (0, 0, 0))
@@ -127,14 +135,15 @@ class world:
         CAMP_PRESS=pygame.image.load("CAMP_PRESS.png")
         SAVE=pygame.image.load("save.png")
         SAVE_PRESS=pygame.image.load("save_press.png")
+        DET=pygame.image.load("detector.png")
         v=[]
         u=[carga((100,100),0)]
         botones = []
         r_boton_1_1 = ELECTRON.get_rect()
-        r_boton_1_1.topleft = [40, 135]
+        r_boton_1_1.topleft = [35, 135]
         botones.append({ 'imagen': ELECTRON, 'imagen_pressed': ELECTRON_PULSO, 'rect': r_boton_1_1, 'on_click': False})
         r_boton_2_2 = CARGA.get_rect()
-        r_boton_2_2.topleft = [130, 135]
+        r_boton_2_2.topleft = [138, 135]
         botones.append({ 'imagen': CARGA, 'imagen_pressed': CARGA_PULSO, 'rect': r_boton_2_2, 'on_click': False})
         r_boton_3_3 = NEW.get_rect()
         r_boton_3_3.topleft = [25, 510]
@@ -151,7 +160,10 @@ class world:
         r_boton_7_7 = SAVE.get_rect()
         r_boton_7_7.topleft = [642, 536]
         botones.append({ 'imagen': SAVE, 'imagen_pressed': SAVE_PRESS, 'rect': r_boton_7_7, 'on_click': False})
-        
+        r_boton_8_8 = DET.get_rect()
+        r_boton_8_8.topleft = [97, 140]
+        botones.append({ 'imagen': DET, 'imagen_pressed': DET, 'rect': r_boton_8_8, 'on_click': False})
+                
         
         b=None
         VelX=0
@@ -173,11 +185,16 @@ class world:
                 x=50*np.cos(i)+510
                 y=50*np.sin(i)+210
                 v=v+[ball((x,y),(0,0),(10*(-1)**(i*(10/np.pi))))]
-        p=np.arange(150,850,30)
-        for i in p:
-            u=u+[carga((i,300),15)]
-            u=u+[carga((i,100),-15)]
         
+        elif pantalla2:
+            p=np.arange(150,850,30)
+            for i in p:
+                u=u+[carga((i,300),15)]
+                u=u+[carga((i,100),-15)]
+        elif pantalla3:
+            u=u+[carga((400,250),100),carga((450,300),-100)]
+            
+        det=[]
 
         
         while Ejecucion==True:
@@ -192,14 +209,16 @@ class world:
                         boton['on_click'] = boton['rect'].colliderect([mouse[0], mouse[1], 1, 1])
                     click = True
                     if botones[0]['on_click'] and click:
-                        b=True
+                        b=1
                     if botones[1]['on_click'] and click:
-                        b=False
+                        b=0
+                    if botones[7]['on_click'] and click:
+                        b=2                     
                     mouse=pygame.mouse.get_pos()
-                    if b==True:
+                    if b==1:
                         if pygame.mouse.get_pos()[0]>225 and pygame.mouse.get_pos()[1]<460:
                             v=v+[ball((mouse[0]-10,mouse[1]-10),(VelX,-VelY),Mag)]
-                    else:
+                    elif b==0:
                         if pygame.mouse.get_pos()[0]>225 and pygame.mouse.get_pos()[1]<460:
                             u=u+[carga((mouse[0]-20,mouse[1]-20),Mag)]
                             if botones[4]['on_click'] and click or pot==True:
@@ -208,6 +227,11 @@ class world:
                             elif botones[5]['on_click'] and click or camp==True:
                                 update_campo=True
                                 update_potencial=False
+                    elif b==2:
+                        if pygame.mouse.get_pos()[0]>225 and pygame.mouse.get_pos()[1]<460:
+                            det=[detector((mouse[0]-17,mouse[1]-17))]
+                            
+                 
                                 
                             
                 if event.type == pygame.KEYDOWN:
@@ -292,7 +316,9 @@ class world:
                     l=0
             if botones[6]['on_click'] and click:
                 GUARDAR=True
+          
+                
             
 
 
-            world(v,u).update(botones,input_boxes,pot,update_potencial,camp,update_campo,GUARDAR)
+            world(v,u,det).update(botones,input_boxes,pot,update_potencial,camp,update_campo,GUARDAR)
