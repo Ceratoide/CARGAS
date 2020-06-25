@@ -13,8 +13,6 @@ class PANTALLAS:
         self.imagen_boton_pressed = pygame.image.load("flecha2.png")
         self.imagen_boton_2= pygame.transform.flip(self.imagen_boton, True, False)
         self.imagen_boton_pressed_2= pygame.transform.flip(self.imagen_boton_pressed, True, False)
-        self.volti=pygame.image.load("volti.png")
-        self.volti_otro=pygame.transform.flip(self.volti,True,False)
         self.imagen_panel = pygame.image.load('pantallass.jpg')
         self.clock=pygame.time.Clock()
         self.screen = pygame.display.set_mode((800, 600))

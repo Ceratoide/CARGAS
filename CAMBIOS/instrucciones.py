@@ -13,9 +13,13 @@ class INSTRUCCIONES:
         self.imagen_boton_pressed = pygame.image.load("flecha2.png")
         self.imagen_boton_2= pygame.transform.flip(self.imagen_boton, True, False)
         self.imagen_boton_pressed_2= pygame.transform.flip(self.imagen_boton_pressed, True, False)
-        self.volti=pygame.image.load("volti.png")
-        self.volti_otro=pygame.transform.flip(self.volti,True,False)
-        self.imagen_panel = pygame.image.load('MENU.jpg')
+        self.MC=pygame.image.load('MenuCargas.png')
+        self.PC=pygame.image.load('MenuCP.png')
+        self.FIELD=pygame.image.load('MenuCampo.png')
+        self.ROJO=pygame.image.load('MenuRojo.png')
+        self.FINAL=pygame.image.load('Menultimo.png')
+        self.imagen_panel = self.MC
+        
         self.clock=pygame.time.Clock()
         self.screen = pygame.display.set_mode((800, 600))
         self.fuente = pygame.font.SysFont('Courier', 20)
@@ -42,10 +46,7 @@ class INSTRUCCIONES:
         r_boton_2_2 = self.imagen_boton.get_rect()
         r_boton_2_2.topleft = [550, 540]
         botones.append({ 'imagen': self.imagen_boton_2, 'imagen_pressed': self.imagen_boton_pressed_2, 'rect': r_boton_2_2, 'on_click': False})
-        r_boton_3_3 = self.volti.get_rect()
-        r_boton_3_3.topleft = [325, 320]
-        botones.append({ 'imagen': self.volti, 'imagen_pressed': self.volti_otro, 'rect': r_boton_3_3, 'on_click': False})
-        
+
         while otra_pantalla:
             for event in pygame.event.get():
                 if event.type==QUIT:
@@ -65,13 +66,26 @@ class INSTRUCCIONES:
                     if event.key == pygame.K_q:
                         otra_pantalla = False
             if botones[0]['on_click'] and click:
-                self.imagen_panel = pygame.image.load('fondo-pared-ladrillos.jpg')
-                
+                if self.imagen_panel == self.MC:
+                    self.imagen_panel = self.PC
+                elif self.imagen_panel == self.PC:
+                    self.imagen_panel = self.FIELD
+                elif self.imagen_panel == self.FIELD:
+                    self.imagen_panel = self.ROJO
+                elif self.imagen_panel == self.ROJO:
+                    self.imagen_panel= self.FINAL
+                    
                 click = False
                 
             if botones[1]['on_click'] and click:
-                self.imagen_panel = pygame.image.load('MENU.jpg')
-                botones.append({ 'imagen': self.volti, 'imagen_pressed': self.volti_otro, 'rect': r_boton_3_3, 'on_click': False})
+                if self.imagen_panel == self.FINAL:
+                    self.imagen_panel = self.ROJO
+                elif self.imagen_panel == self.ROJO:
+                    self.imagen_panel = self.FIELD
+                elif self.imagen_panel == self.FIELD:
+                    self.imagen_panel = self.PC
+                elif self.imagen_panel == self.PC:
+                    self.imagen_panel= self.MC             
                 click = False
 
             

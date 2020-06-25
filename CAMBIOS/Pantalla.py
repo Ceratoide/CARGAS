@@ -300,6 +300,7 @@ class world:
                     if camp==True:
                         update_campo=True
                     u.pop(-1)
+                det=[]
             if botones[4]['on_click'] and click and paso:
                 if n==0:
                     pot=True
