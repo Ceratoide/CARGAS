@@ -89,27 +89,34 @@ class world:
 
         for k in self.cargas:
             self.screen.blit(k.image,k.pos)
-            for i in self.detector:
-                i.detectar(k)
-                self.screen.blit(i.imagen,i.pos)
+
             for o in self.ball:
                 o.col(k)
                 self.screen.blit(o.image,o.pos)
-
-
-                
+            
             campo_total=campo_total+carga.magnitud_campo(k,pygame.mouse.get_pos())
             potencial_total=potencial_total+carga.potencial(k,pygame.mouse.get_pos())
-        texto=self.fuente.render("{:.3f}".format(campo_total), 0, (0, 0, 0))
-        texto2=self.fuente.render("{:.3f}".format(potencial_total), 0, (0, 0, 0))
-        ejex=(pygame.mouse.get_pos()[0]/80)-2.91
-        ejey=-(pygame.mouse.get_pos()[1]/80)+5.7
+                
+        for i in self.detector:
+            i.detectar(self.cargas)
+            self.screen.blit(i.imagen,i.pos)
+        if len(self.detector)==0:
+            texto=self.fuente.render("{:.3f}".format(campo_total), 0, (0, 0, 0))
+            texto2=self.fuente.render("{:.3f}".format(potencial_total), 0, (0, 0, 0))
+            ejex=(pygame.mouse.get_pos()[0]/80)-2.91
+            ejey=-(pygame.mouse.get_pos()[1]/80)+5.7
+        else:
+            texto=self.fuente.render("{:.3f}".format(self.detector[0].campo_TOTAL(self.cargas)), 0, (0, 0, 0))
+            texto2=self.fuente.render("{:.3f}".format(self.detector[0].potencial_TOTAL(self.cargas)), 0, (0, 0, 0))
+            ejex=((self.detector[0].pos[0]+17.5)/80)-2.91
+            ejey=-((self.detector[0].pos[1]+17.5)/80)+5.7
         textposx=self.fuente.render("{:.2f}".format(ejex), 0, (255, 255, 255))
         textposy=self.fuente.render("{:.2f}".format(ejey), 0, (255, 255, 255))
         self.dibujar_botones(lista_botones)
-        self.screen.blit(texto, (20,243))
-        self.screen.blit(texto2, (20,315))
-        if ejex>0 and ejey>0:
+
+        if 6.85>ejex>0 and 5.45>ejey>0 :
+            self.screen.blit(texto, (20,243))
+            self.screen.blit(texto2, (20,315))
             self.screen.blit(textposx, (650,499))
             self.screen.blit(textposy, (715,499))
         for box in input_boxes:
@@ -278,6 +285,7 @@ class world:
 
             if botones[2]['on_click'] and click:
                 v=[]
+                det=[]
                 if len(u)>1:
                     u=[carga((100,100),0)]
                     if pot==True:

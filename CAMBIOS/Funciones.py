@@ -121,13 +121,30 @@ class detector(pygame.sprite.Sprite):
         self.pos=self.imagen.get_rect().move(px,py)
         self.mask=pygame.mask.from_surface(self.imagen)
         self.rect=self.pos
-    def detectar(self,carga):
-        if carga.magnitud_campo(self.pos)>0:
+        self.campototal=0
+        self.potencialtotal=0
+    def detectar(self,CARGA):
+        
+        for i in CARGA:
+            self.campototal=self.campototal+i.magnitud_campo(self.pos)
+            self.potencialtotal=self.potencialtotal+i.potencial(self.pos)
+        if self.campototal>0:
             self.imagen=self.image_pos
-        elif carga.magnitud_campo(self.pos)<0:
+        elif self.campototal<0:
             self.imagen=self.image_neg
         else:
             self.imagen=self.image
+    def campo_TOTAL(self,CARGA):
+        CAMPO=0
+        for i in CARGA:
+            CAMPO=CAMPO+i.magnitud_campo((self.pos[0]+17.5,self.pos[1]+17.5)) 
+        return CAMPO
+    def potencial_TOTAL(self,CARGA):
+        POT=0
+        for i in CARGA:
+            POT=POT+i.potencial((self.pos[0]+17.5,self.pos[1]+17.5)) 
+        return POT
+        
             
         
 

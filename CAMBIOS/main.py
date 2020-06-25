@@ -52,9 +52,6 @@ class main:
         botones.append({ 'imagen': self.sortir, 'imagen_pressed': self.sortir_press, 'rect': r_boton_4_4, 'on_click': False})
         
         
-        
-        
-    
         while otra_pantalla:
             for event in pygame.event.get():
                 if event.type==QUIT:
