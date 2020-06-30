@@ -1,0 +1,6 @@
+README.md
+setup.py
+Simulador_de_campo_electrico.egg-info/PKG-INFO
+Simulador_de_campo_electrico.egg-info/SOURCES.txt
+Simulador_de_campo_electrico.egg-info/dependency_links.txt
+Simulador_de_campo_electrico.egg-info/top_level.txt
