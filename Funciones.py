@@ -5,11 +5,11 @@ import numpy as np
 class carga(pygame.sprite.Sprite):
     def __init__(self,pos,magnitud):
         if magnitud<0:
-            self.image=pygame.image.load("electron.png")
+            self.image=pygame.image.load("sprites\\electron.png")
         if magnitud>0:
-            self.image=pygame.image.load("proton.png") 
+            self.image=pygame.image.load("sprites\\proton.png") 
         if magnitud==0:
-            self.image=pygame.image.load("Neutro.png")
+            self.image=pygame.image.load("sprites\\neutro.png")
         px,py=pos
         self.pos=self.image.get_rect().move(px,py)
         self.magnitud=magnitud
@@ -49,11 +49,11 @@ class ball(pygame.sprite.Sprite):
     
     def __init__(self,pos, vel,magnitud,acel=(0,0)):
         if magnitud<0:
-            self.image=pygame.image.load("electronchikito.png")
+            self.image=pygame.image.load("sprites\\electronchikito.png")
         if magnitud>0:
-            self.image=pygame.image.load("protonchikito.png") 
+            self.image=pygame.image.load("sprites\\protonchikito.png") 
         if magnitud==0:
-            self.image=pygame.image.load("Neutrochikito.png")
+            self.image=pygame.image.load("sprites\\neutrochikito.png")
         px,py=pos
         self.pos=self.image.get_rect().move(px,py)
         self.vel=np.array(vel)
@@ -113,9 +113,9 @@ class ball(pygame.sprite.Sprite):
     
 class detector(pygame.sprite.Sprite):
     def __init__(self,pos):
-        self.image=pygame.image.load('detector.png')
-        self.image_pos=pygame.image.load('detector_pos.png')
-        self.image_neg=pygame.image.load('detector_neg.png')
+        self.image=pygame.image.load('sprites\\detector.png')
+        self.image_pos=pygame.image.load('sprites\\detector_pos.png')
+        self.image_neg=pygame.image.load('sprites\detector_neg.png')
         self.imagen=self.image
         px,py=pos
         self.pos=self.imagen.get_rect().move(px,py)
