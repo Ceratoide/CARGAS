@@ -3,9 +3,8 @@ from pygame.locals import *
 import numpy as np
 from Funciones import *
 from Pantalla import *
-from Menu import *
 from Pantallas import *
-
+from instrucciones import *
 class main:
     def __init__(self):
         
