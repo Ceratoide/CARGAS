@@ -123,16 +123,16 @@ class detector(pygame.sprite.Sprite):
         self.rect=self.pos
         self.campototal=0
         self.potencialtotal=0
-    def detectar(self,CARGA):
+    def detectar(self,CARGA,op1=False,op2=False,op3=False):
         
         for i in CARGA:
             self.campototal=self.campototal+i.magnitud_campo(self.pos)
             self.potencialtotal=self.potencialtotal+i.potencial(self.pos)
-        if self.campototal>0:
+        if op1:
             self.imagen=self.image_pos
-        elif self.campototal<0:
+        elif op2:
             self.imagen=self.image_neg
-        else:
+        elif op3:
             self.imagen=self.image
     def campo_TOTAL(self,CARGA):
         CAMPO=0

@@ -96,10 +96,15 @@ class world:
             
             campo_total=campo_total+carga.magnitud_campo(k,pygame.mouse.get_pos())
             potencial_total=potencial_total+carga.potencial(k,pygame.mouse.get_pos())
-                
         for i in self.detector:
-            i.detectar(self.cargas)
-            self.screen.blit(i.imagen,i.pos)
+            if self.detector[0].campo_TOTAL(self.cargas)>0:
+                i.detectar(self.cargas,op1=True)
+            elif self.detector[0].campo_TOTAL(self.cargas)<0:
+                i.detectar(self.cargas,op2=True)
+            else:
+                i.detectar(self.cargas,op3=True)
+            self.screen.blit(i.imagen,i.pos)               
+
         if len(self.detector)==0:
             texto=self.fuente.render("{:.3f}".format(campo_total), 0, (0, 0, 0))
             texto2=self.fuente.render("{:.3f}".format(potencial_total), 0, (0, 0, 0))
@@ -143,6 +148,8 @@ class world:
         SAVE=pygame.image.load("sprites\\save.png")
         SAVE_PRESS=pygame.image.load("sprites\\save_press.png")
         DET=pygame.image.load("sprites\\detector.png")
+        EQUIS=pygame.image.load("sprites\\equis.png")
+        EQUISP=pygame.image.load("sprites\\equisp.png")
         v=[]
         u=[carga((100,100),0)]
         botones = []
@@ -168,9 +175,11 @@ class world:
         r_boton_7_7.topleft = [642, 536]
         botones.append({ 'imagen': SAVE, 'imagen_pressed': SAVE_PRESS, 'rect': r_boton_7_7, 'on_click': False})
         r_boton_8_8 = DET.get_rect()
-        r_boton_8_8.topleft = [97, 140]
+        r_boton_8_8.topleft = [97, 135]
         botones.append({ 'imagen': DET, 'imagen_pressed': DET, 'rect': r_boton_8_8, 'on_click': False})
-                
+        r_boton_9_9 = EQUIS.get_rect()
+        r_boton_9_9.topleft = [97, 175]
+        botones.append({ 'imagen': EQUIS, 'imagen_pressed': EQUISP, 'rect': r_boton_9_9, 'on_click': False})              
         
         b=None
         VelX=0
@@ -300,7 +309,7 @@ class world:
                     if camp==True:
                         update_campo=True
                     u.pop(-1)
-                det=[]
+                
             if botones[4]['on_click'] and click and paso:
                 if n==0:
                     pot=True
@@ -325,6 +334,8 @@ class world:
                     l=0
             if botones[6]['on_click'] and click:
                 GUARDAR=True
+            if botones[8]['on_click'] and click:
+                det=[]
           
                 
             

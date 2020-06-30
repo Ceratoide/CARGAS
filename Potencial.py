@@ -37,7 +37,7 @@ def barra(potenciales):
     fig,ax = plt.subplots()
 
     mpb=plt.contourf(X, Y, Z, 50,cmap=matplotlib.cm.inferno)
-    plt.colorbar(mpb,ax=ax,fraction=0.20,orientation="horizontal",shrink=1.1,aspect=8)
+    plt.colorbar(mpb,ax=ax,fraction=0.20,orientation="horizontal",shrink=1.08,aspect=8)
     ax.remove()
         
     return fig

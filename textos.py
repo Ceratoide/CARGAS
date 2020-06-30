@@ -15,7 +15,7 @@ class cajas_texto:
         self.active = False
     
     def eventos(self, event):
-    
+        
         if event.type == pygame.MOUSEBUTTONDOWN:
             if self.rect.collidepoint(event.pos):
                 self.active = not self.active
@@ -26,13 +26,14 @@ class cajas_texto:
             self.color = self.COLOR_ACTIVE if self.active else self.COLOR_INACTIVE
         if event.type == pygame.KEYDOWN:
             if self.active:
+                
                 if event.key == pygame.K_RETURN:
                     self.text = '0'
                     
-
                 elif event.key == pygame.K_BACKSPACE:
                     self.text = self.text[:-1]
-                elif len(self.text)<6:
+                elif len(self.text)<4:
+
                     self.text = self.text+ event.unicode
                 self.txt_surface = self.FONT.render(self.text, True, self.color)
        
