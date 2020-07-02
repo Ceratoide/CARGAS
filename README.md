@@ -1,4 +1,7 @@
+
 ![LOGO](ICONOS/LOGO.png)
+
+![BASE](ICONOS/Base.png)
 # SIMULADOR
 Se trata de un programa que simula el movimiento de cargas dentro de un campo creado por el empleador. Podrá encontrar extensiones 
 con las cuales interactuar.
@@ -76,5 +79,5 @@ https://test.pypi.org/project/Simulador-de-campo-electrico/0.0.1/#description
 
 
 ## Autores
-- Jean Pierre Cifuentes
-- Juan Diego Zuniga 
+- Jean Pierre Cifuentes Salazar
+- Juan Diego Zuniga Vargas
