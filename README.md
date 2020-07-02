@@ -1,16 +1,8 @@
-# Simulador
-Se trata de un proyecto universitario el cual tiene como objetivo realizar simulaciones de eventos fí­sicos, tales como el movimiento 
-de cuerpo masivos alrededor de una estrella, movimiento de particulas atraves de un campo, entre otros. Este ultimo, el movimiento de 
-particulas, se esta llevando acabo y por el momento es el unico que tiene algun desarrollo.
-
-Se esta trabajando en la interfaz de modo que aparezca un menú de manera que el jugador pueda interactuar directamente con la simulación
-sea el quien decida caracteristicas de la carga tales como: su signo, su posición, si va a ser una carga estacionario o de prueba, entre 
-otros aspectos que son fundamentales dentro de lo que se tiene planeado para la simulación.
+# SIMULADOR DE CARGAS
+Se trata de un programa que simula el movimiento de cargas dentro de un campo creado por el empleador. Podrá encontrar extensiones 
+que lo hacen interactivo.
 
 ## Funcionamiento
-Cabe aclarar que el funcionamiento del programa se encuentra en constantes cambios, esto debido a que se trabaja de manera continua,
-añadiendo cosas que lo complementen.
-
 Lo primero que se verá al iniciar el simulador será la pantalla de inicio, donde encontraremos una imagen que hace alusión a James Clerk
 Maxwell, físico que dedujo las leyes del electromagnetismo, en esta se encontrará el boton de comenzar, el cual conducirá al simulador.
 Una vez dentro nos encontraremos con la interfaz ( aún en desarrollo ), esta nos permitirá dotar de varias caracteristicas a las cargas
@@ -39,10 +31,6 @@ potencial negativo.
 Tanto las cargas estacionarias como las cargas de prueba pueden ser positivas o negativas, de manera que las cargas de mismo signo
 se repelen y las de signo contrario se atraen. 
 
-
-## Trabajo en proceso
- Se sabe como introducir el potencial como fondo, sin embargo, establecerlo vuelve muy lento el programa por lo que se estan mirando 
- maneras de optimizar este problema. Con esto solucionado añadir como opción la visualización del campo electrico será muy similar.
 
 ## Autores
 - Jean Pierre Cifuentes
