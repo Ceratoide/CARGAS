@@ -6,7 +6,11 @@ con las cuales podrá interactuar.
 ## TABLA DE CONTENIDO
 
 
-- FUNCIONAMIENTO-
+- FUNCIONAMIENTO
+  - BOTONES
+  - INTERFAZ
+  - CAMPOS
+  
 - INSTALACIÓN
 
 
