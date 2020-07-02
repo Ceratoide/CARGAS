@@ -1,9 +1,18 @@
-# SIMULADor
+# SIMULADOR
 Se trata de un programa que simula el movimiento de cargas dentro de un campo creado por el empleador. Podrá encontrar extensiones 
 con las cuales podrá interactuar.
 
 
+## TABLA DE CONTENIDO
+
+- FUNCIONAMIENTO
+  -
+- INSTALACIÓN
+
+
+
 ## Funcionamiento
+Empleando la ley de Coulumb se determina el movimiento de las cargas al 
 Lo primero que se verá al iniciar el simulador será la pantalla de inicio, donde encontraremos una imagen que hace alusión a James Clerk
 Maxwell, físico que dedujo las leyes del electromagnetismo, en esta se encontrará el boton de comenzar, el cual conducirá al simulador.
 Una vez dentro nos encontraremos con la interfaz ( aún en desarrollo ), esta nos permitirá dotar de varias caracteristicas a las cargas
