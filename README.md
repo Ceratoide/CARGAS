@@ -5,8 +5,8 @@ con las cuales podrá interactuar.
 
 ## TABLA DE CONTENIDO
 
-- FUNCIONAMIENTO
-  -
+
+- FUNCIONAMIENTO-
 - INSTALACIÓN
 
 
