@@ -24,7 +24,7 @@ de cargas ya establecidas. Además esta la opción de ver los campos tanto eléc
 correspondiente que se encuentre sobre la pantalla.
 
 
-    ### CARGAS Y BOTONES
+ ### CARGAS Y BOTONES
     Existen dos tipos de cargas, las cargas estacionarias y las de prueba, las primeras crean el campo eléctrico que interactuará 
     con las segundas, provocando su movimiento. Se aclara que las cargas de prueba son las únicas con la facultad de moverse sobre 
     la pantalla. 
@@ -48,7 +48,7 @@ correspondiente que se encuentre sobre la pantalla.
     sobre el.
     * Tecla q: da pausa al simulador.
 
-    ### CAMPOS
+ ### CAMPOS
     Como se ha indicado anteriormente, es posible observar el campo tanto eléctrico como potencial que crean las cargas 
     estacionarias haciendo unicamente click sobre el recuadro con el respectivo nombre.
     
@@ -62,8 +62,7 @@ correspondiente que se encuentre sobre la pantalla.
     
     
     Si los campos estan activados estos se actualizaran cada vez que se inserte una nueva carga estacionaria.
-
-    ### PANTALLAS
+ ### PANTALLAS
     En la opción pantallas, que aparece en la pantalla de inicio, encontrará 3 tipos de configuraciones de cargas diferente.
     
 
