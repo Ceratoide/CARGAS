@@ -1,3 +1,4 @@
+![LOGO](ICONOS/LOGO.png)
 # SIMULADOR
 Se trata de un programa que simula el movimiento de cargas dentro de un campo creado por el empleador. Podrá encontrar extensiones 
 con las cuales interactuar.
