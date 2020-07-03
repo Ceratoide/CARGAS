@@ -92,6 +92,13 @@ correspondiente que se encuentre sobre la pantalla.
 ## DEPENDENCIAS Y REQUISITOS
 ### DEPENCENCIAS:
 
+* `Python <https://www.python.org/downloads/>`_ (>= 3.6)
+* `Matplotlib <https://matplotlib.org/>`_ (= 3.2.2)
+* `NumPy <https://numpy.org>`_ (>= 1.15)
+* `PyGame <https://www.pygame.org/download.shtml>`_ (= 1.9.6)
+* `setuptools <https://setuptools.readthedocs.io/en/latest/>`_
+
+
 
 
 
