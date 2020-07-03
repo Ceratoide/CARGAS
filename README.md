@@ -49,6 +49,7 @@ correspondiente que se encuentre sobre la pantalla.
    Entre los botones encontrará:
     
    - Retornar: Elimina la ultima carga insertada a la pantalla.
+   ![return](SIMULADOR\sprites\return.png)
    - Limpiar: Elimina todas las cargas presentes en la pantalla.
    - Campo: Inserta un campo eléctrico correspondiente a la configuración de cargas. Para quitarlo debe oprimirse de nuevo sobre el. 
    - Potencial: Inserta un campo potencial correspondiente a la configuración de cargas. Para quitarlo debe oprimirse de nuevo 
