@@ -49,12 +49,24 @@ correspondiente que se encuentre sobre la pantalla.
    Entre los botones encontrará:
     
    - Retornar: Elimina la ultima carga insertada a la pantalla.
-   ![return](SIMULADOR\sprites\return.png)
+   ![return](SIMULADOR/sprites/return.png)
+   
    - Limpiar: Elimina todas las cargas presentes en la pantalla.
+   ![return](SIMULADOR/sprites/LIMPIAR.png)
+   
+   - Carga de Campo: Permite generar una carga de campo en la pantalla.
+   ![return](SIMULADOR/sprites/CARGA.png)
+   
+   - Carga de prueba: Permite generar una carga de prueba en la pantalla.
+   ![return](SIMULADOR/sprites/prueba.png) 
+   
    - Campo: Inserta un campo eléctrico correspondiente a la configuración de cargas. Para quitarlo debe oprimirse de nuevo sobre el. 
+   ![return](SIMULADOR/sprites/CAMP.png)
    - Potencial: Inserta un campo potencial correspondiente a la configuración de cargas. Para quitarlo debe oprimirse de nuevo 
     sobre el.
-   - Tecla q: da pausa al simulador.
+   ![return](SIMULADOR/sprites/POT.png)
+   
+   - Tecla q: Funciona para salir al inicio.
 
  ### CAMPOS
    Como se ha indicado anteriormente, es posible observar el campo tanto eléctrico como potencial que crean las cargas 
