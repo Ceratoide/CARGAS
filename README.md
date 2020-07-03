@@ -1,6 +1,6 @@
 ![LOGO](ICONOS/LOGO.png)
 
-Este simulador de campo electrico es un programa diseñado para facilitar el modelado de situaciones que involucren cargas puntuales en Python 3.
+Este simulador de campo eléctrico es un programa diseñado para facilitar el modelado de situaciones que involucren cargas puntuales en Python 3.
 
 ![BASE](ICONOS/Base.png)
 # SIMULADOR V.0.0.1
@@ -16,6 +16,7 @@ con las cuales interactuar.
   - CARGAS Y BOTONES
   - CAMPOS
   - PANTALLAS
+  - TEORÍA
 - DEPENDENCIAS 
 - INSTALACIÓN
 
@@ -87,6 +88,9 @@ correspondiente que se encuentre sobre la pantalla.
    En la opción pantallas, que aparece en la pantalla de inicio, encontrará 3 tipos de configuraciones de cargas diferente.
   
    ![return](SIMULADOR/sprites/carga_en_anillo.png) ![return](SIMULADOR/sprites/constante.png) ![return](SIMULADOR/sprites/dipolo.png)
+ ## TEORÍA
+ Todo el groso teórico se puede encontrar visitando el siguiente documento.
+ [Teoría](https://github.com/Ceratoide/CARGAS/blob/master/Teor%C3%ADa.md) 
 ## DEPENDENCIAS 
 * [Python](https://www.python.org/downloads/)(>= 3.6)
 * [Matplotlib](https://matplotlib.org/) (= 3.2.2)
