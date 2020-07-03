@@ -16,8 +16,11 @@ con las cuales interactuar.
   - CARGAS Y BOTONES
   - CAMPOS
   - PANTALLAS
-  
+- DEPENDENCIAS Y REQUISITOS
+  - DEPENDENCIAS
+  - REQUISITOS
 - INSTALACIÓN
+
 
 
 ## Funcionamiento
@@ -60,13 +63,16 @@ correspondiente que se encuentre sobre la pantalla.
    - Carga de prueba: Permite generar una carga de prueba en la pantalla.
    ![return](SIMULADOR/sprites/prueba.png) 
    
+   - Detector: Permite fijar la posición, el potencial y campo en un punto de interes.
+   ![return](SIMULADOR/sprites/detector.png) 
+   
    - Campo: Inserta un campo eléctrico correspondiente a la configuración de cargas. Para quitarlo debe oprimirse de nuevo sobre el. 
    ![return](SIMULADOR/sprites/CAMP.png)
    - Potencial: Inserta un campo potencial correspondiente a la configuración de cargas. Para quitarlo debe oprimirse de nuevo 
     sobre el.
    ![return](SIMULADOR/sprites/POT.png)
    
-   - Tecla q: Funciona para salir al inicio.
+   - Tecla q: Para salir al inicio.
 
  ### CAMPOS
    Como se ha indicado anteriormente, es posible observar el campo tanto eléctrico como potencial que crean las cargas 
@@ -81,7 +87,13 @@ correspondiente que se encuentre sobre la pantalla.
    Si los campos estan activados estos se actualizaran cada vez que se inserte una nueva carga estacionaria.
  ### PANTALLAS
    En la opción pantallas, que aparece en la pantalla de inicio, encontrará 3 tipos de configuraciones de cargas diferente.
-    
+  
+   ![return](SIMULADOR/sprites/carga_en_anillo.png) ![return](SIMULADOR/sprites/constante.png) ![return](SIMULADOR/sprites/dipolo.png)
+## DEPENDENCIAS Y REQUISITOS
+### DEPENCENCIAS:
+
+
+
 
 ## INSTALACIÓN
 El proyecto lo podrá encontrar en PyPI, desde donde es posible descargarlo. Lo podrá ejecutar desde la consola corriendo
@@ -89,9 +101,21 @@ el archivo " Simulador de cargas".
 
 El link del proyecto en PyPI es el siguiente:
 <https://test.pypi.org/project/Simulador-de-campo-electrico/0.0.1/#description>
+La ruta para descargar el proyecto es la siguiente, para instalarlo debe ponerse en la consola:
 #### 
     pip install -i https://test.pypi.org/simple/ Simulador-de-campo-electrico==0.0.1
-    
+Una vez hecho esto el programa se podrá ejecutar desde la consola yendo a la carpeta SIMULADOR y escribiendo:
+#### 
+    python SIMULADOR.py
+Una vez hecho esto se abrirá la ventana principal del programa. Es de aclarar que según como se tenga configurada la versión de Python3 esta instrucción puede variar a:
+#### 
+    python3 SIMULADOR.py
+Si está interesado en contribuir al desarrollo del simulador, ejecutando el último código fuente, o simplemente desea construir todo usted mismo desde la fuente.
+La forma más fácil de obtener la última versión de desarrollo para comenzar a contribuir es ir al repositorio de git y ejecutar:
+#### 
+    git clone https://github.com/Ceratoide/CARGAS.git
+De esta manera usted tendrá acceso a los modulos del proyecto.
+
 
 
 
