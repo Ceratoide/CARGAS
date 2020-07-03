@@ -1,5 +1,6 @@
-
 ![LOGO](ICONOS/LOGO.png)
+
+Este simulador de campo electrico es un programa diseñado para facilitar el modelado de situaciones que involucren cargas puntuales en Python.
 
 ![BASE](ICONOS/Base.png)
 # SIMULADOR
@@ -29,45 +30,42 @@ correspondiente que se encuentre sobre la pantalla.
 
 
  ### CARGAS Y BOTONES
-    Existen dos tipos de cargas, las cargas estacionarias y las de prueba, las primeras crean el campo eléctrico que interactuará 
+   Existen dos tipos de cargas, las cargas estacionarias y las de prueba, las primeras crean el campo eléctrico que interactuará 
     con las segundas, provocando su movimiento. Se aclara que las cargas de prueba son las únicas con la facultad de moverse sobre 
     la pantalla. 
     
-    Tanto las estacionarias como las de prueba podrán ser positivas como negativas, incluso neutras si su valor de carga es igual
+   Tanto las estacionarias como las de prueba podrán ser positivas como negativas, incluso neutras si su valor de carga es igual
     a cero. Para establecerr el valor de la carga es necesario insertarlo en el recuadro denominado cargas, si se desea que esta sea
     negativa es necesario colocar el signo menos ("-" ). Para establecer la velocidad estan dispuestos dos recuadros, donde el 
     primero es el componente x de la velocidad, y el segundo su componente en y. Si en algunos de estos recuadros no se inserta un
     valor, se tomará este como cero.
     
-    Para insertar una carga, independientemente del tipo que sea, primero debe darse click sobre la carga que desea incorporar y 
+   Para insertar una carga, independientemente del tipo que sea, primero debe darse click sobre la carga que desea incorporar y 
     después dar click sobre el punto de la pantalla donde desea que aparezca. Cabe recordar que las cargas con signo opuesto
     se atraen y las de signo igual se repelen.
     
-    Entre los botones encontrará:
+   Entre los botones encontrará:
     
-    - Retornar: Elimina la ultima carga insertada a la pantalla.
-    - Limpiar: Elimina todas las cargas presentes en la pantalla.
-    - Campo: Inserta un campo eléctrico correspondiente a la configuración de cargas. Para quitarlo debe oprimirse de nuevo sobre el. 
-    - Potencial: Inserta un campo potencial correspondiente a la configuración de cargas. Para quitarlo debe oprimirse de nuevo 
+   - Retornar: Elimina la ultima carga insertada a la pantalla.
+   - Limpiar: Elimina todas las cargas presentes en la pantalla.
+   - Campo: Inserta un campo eléctrico correspondiente a la configuración de cargas. Para quitarlo debe oprimirse de nuevo sobre el. 
+   - Potencial: Inserta un campo potencial correspondiente a la configuración de cargas. Para quitarlo debe oprimirse de nuevo 
     sobre el.
-    - Tecla q: da pausa al simulador.
+   - Tecla q: da pausa al simulador.
 
  ### CAMPOS
-    Como se ha indicado anteriormente, es posible observar el campo tanto eléctrico como potencial que crean las cargas 
-    estacionarias haciendo unicamente click sobre el recuadro con el respectivo nombre.
+   Como se ha indicado anteriormente, es posible observar el campo tanto eléctrico como potencial que crean las cargas 
+   estacionarias haciendo unicamente click sobre el recuadro con el respectivo nombre.
+   El campo eléctrico consiste en un mapa compuesto de flechas que indican la dirección que tomaran las cargas de prueba
+   positivas sobre ese punto especificamente, en caso de ser negativas tomaran la dirección contraria indicada por la 
+   flecha.
     
-    El campo eléctrico consiste en un mapa compuesto de flechas que indican la dirección que tomaran las cargas de prueba
-    positivas sobre ese punto especificamente, en caso de ser negativas tomaran la dirección contraria indicada por la 
-    flecha.
     
-    
-    El campo potencial consiste en un mapa compuesto por lineas de contorno que representan los puntos donde el potencial
+   El campo potencial consiste en un mapa compuesto por lineas de contorno que representan los puntos donde el potencial
     es igual. 
-    
-    
-    Si los campos estan activados estos se actualizaran cada vez que se inserte una nueva carga estacionaria.
+   Si los campos estan activados estos se actualizaran cada vez que se inserte una nueva carga estacionaria.
  ### PANTALLAS
-    En la opción pantallas, que aparece en la pantalla de inicio, encontrará 3 tipos de configuraciones de cargas diferente.
+   En la opción pantallas, que aparece en la pantalla de inicio, encontrará 3 tipos de configuraciones de cargas diferente.
     
 
 ## INSTALACIÓN
