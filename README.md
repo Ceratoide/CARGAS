@@ -91,13 +91,11 @@ correspondiente que se encuentre sobre la pantalla.
    ![return](SIMULADOR/sprites/carga_en_anillo.png) ![return](SIMULADOR/sprites/constante.png) ![return](SIMULADOR/sprites/dipolo.png)
 ## DEPENDENCIAS Y REQUISITOS
 ### DEPENCENCIAS:
-
-* `Python <https://www.python.org/downloads/>`_ (>= 3.6)
-* `Matplotlib <https://matplotlib.org/>`_ (= 3.2.2)
-* `NumPy <https://numpy.org>`_ (>= 1.15)
-* `PyGame <https://www.pygame.org/download.shtml>`_ (= 1.9.6)
-* `setuptools <https://setuptools.readthedocs.io/en/latest/>`_
-
+* [Python](https://www.python.org/downloads/)(>= 3.6)
+* [Matplotlib](https://matplotlib.org/>) (= 3.2.2)
+* [NumPy](https://numpy.org) (>= 1.15)
+* [PyGame](https://www.pygame.org/download.shtml) (= 1.9.6)
+* [setuptools](https://setuptools.readthedocs.io/en/latest/)
 
 
 
