@@ -92,7 +92,7 @@ correspondiente que se encuentre sobre la pantalla.
 ## DEPENDENCIAS Y REQUISITOS
 ### DEPENCENCIAS:
 * [Python](https://www.python.org/downloads/)(>= 3.6)
-* [Matplotlib](https://matplotlib.org/>) (= 3.2.2)
+* [Matplotlib](https://matplotlib.org/) (= 3.2.2)
 * [NumPy](https://numpy.org) (>= 1.15)
 * [PyGame](https://www.pygame.org/download.shtml) (= 1.9.6)
 * [setuptools](https://setuptools.readthedocs.io/en/latest/)
