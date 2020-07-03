@@ -1,4 +1,7 @@
+
 ![LOGO](ICONOS/LOGO.png)
+
+![BASE](ICONOS/Base.png)
 # SIMULADOR
 Se trata de un programa que simula el movimiento de cargas dentro de un campo creado por el empleador. Podrá encontrar extensiones 
 con las cuales interactuar.
@@ -72,9 +75,13 @@ El proyecto lo podrá encontrar en PyPI, desde donde es posible descargarlo. Lo 
 el archivo " Simulador de cargas".
 
 El link del proyecto en PyPI es el siguiente:
-https://test.pypi.org/project/Simulador-de-campo-electrico/0.0.1/#description
+<https://test.pypi.org/project/Simulador-de-campo-electrico/0.0.1/#description>
+#### 
+    pip install -i https://test.pypi.org/simple/ Simulador-de-campo-electrico==0.0.1
+    
+
 
 
 ## Autores
-- Jean Pierre Cifuentes
-- Juan Diego Zuniga 
+- Jean Pierre Cifuentes Salazar
+- Juan Diego Zuniga Vargas
