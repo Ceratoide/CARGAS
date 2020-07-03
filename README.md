@@ -7,6 +7,8 @@ Este simulador de campo electrico es un programa diseñado para facilitar el mod
 Se trata de un programa que simula el movimiento de cargas dentro de un campo creado por el empleador. Podrá encontrar extensiones 
 con las cuales interactuar.
 
+[![Alt text for your video](https://i9.ytimg.com/vi/POfKvTa_u_0/mq2.jpg?sqp=CLyI-vcF&rs=AOn4CLBnK9zaoP6aa60qRKeexCRcQzAI-w)](https://youtu.be/POfKvTa_u_0)
+
 
 ## TABLA DE CONTENIDO
 
