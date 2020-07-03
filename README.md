@@ -96,5 +96,5 @@ El link del proyecto en PyPI es el siguiente:
 
 
 ## Autores
-- Jean Pierre Cifuentes Salazar
-- Juan Diego Zuniga Vargas
+- Jean Pierre Cifuentes Salazar <bcifuentes@unal.edu.co>
+- Juan Diego Zuniga Vargas <jzunigav@unal.edu.co>
