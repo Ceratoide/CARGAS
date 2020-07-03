@@ -16,9 +16,7 @@ con las cuales interactuar.
   - CARGAS Y BOTONES
   - CAMPOS
   - PANTALLAS
-- DEPENDENCIAS Y REQUISITOS
-  - DEPENDENCIAS
-  - REQUISITOS
+- DEPENDENCIAS 
 - INSTALACIÓN
 
 
@@ -89,8 +87,7 @@ correspondiente que se encuentre sobre la pantalla.
    En la opción pantallas, que aparece en la pantalla de inicio, encontrará 3 tipos de configuraciones de cargas diferente.
   
    ![return](SIMULADOR/sprites/carga_en_anillo.png) ![return](SIMULADOR/sprites/constante.png) ![return](SIMULADOR/sprites/dipolo.png)
-## DEPENDENCIAS Y REQUISITOS
-### DEPENCENCIAS:
+## DEPENDENCIAS 
 * [Python](https://www.python.org/downloads/)(>= 3.6)
 * [Matplotlib](https://matplotlib.org/) (= 3.2.2)
 * [NumPy](https://numpy.org) (>= 1.15)
