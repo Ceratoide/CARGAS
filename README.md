@@ -1,6 +1,6 @@
 ![LOGO](ICONOS/LOGO.png)
 
-Este simulador de campo electrico es un programa diseñado para facilitar el modelado de situaciones que involucren cargas puntuales en Python.
+Este simulador de campo electrico es un programa diseñado para facilitar el modelado de situaciones que involucren cargas puntuales en Python 3.
 
 ![BASE](ICONOS/Base.png)
 # SIMULADOR
