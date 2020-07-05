@@ -1,6 +1,0 @@
-README.md
-setup.py
-SIMULADOR.egg-info/PKG-INFO
-SIMULADOR.egg-info/SOURCES.txt
-SIMULADOR.egg-info/dependency_links.txt
-SIMULADOR.egg-info/top_level.txt
