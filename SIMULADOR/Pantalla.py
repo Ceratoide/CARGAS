@@ -48,7 +48,7 @@ class world:
             self.screen.blit(line1, (225,pygame.mouse.get_pos()[1]))
             self.screen.blit(line2, (pygame.mouse.get_pos()[0],458))
         if self.barra:
-            self.window.blit(pygame.image.load("barra.png"), (240,480))
+            self.window.blit(pygame.image.load("barra.png"), (240,471))
 
         for boton in lista_botones:
             if boton['on_click']:

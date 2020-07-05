@@ -1,10 +1,10 @@
 import setuptools
 
-with open("README.md", "r") as fh:
+with open("README.md", "r",encoding="utf8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="Simulador_de_campo_electrico", # Replace with your own username
+    name="SIMULADOR", 
     version="0.0.1",
     author="Jean Pierre Cifuentes Salazar & Juan Diego Zuñiga",
     author_email="bcifuentes@unal.edu.co",
