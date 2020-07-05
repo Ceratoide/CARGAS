@@ -105,12 +105,14 @@ correspondiente que se encuentre sobre la pantalla.
 El proyecto lo podrá encontrar en PyPI, desde donde es posible descargarlo. Lo podrá ejecutar desde la consola corriendo
 el archivo " Simulador de cargas".
 
-El link del proyecto en PyPI es el siguiente:
-<https://test.pypi.org/project/Simulador-de-campo-electrico/0.0.1/#description>
+El link del proyecto en PyPI es el siguiente:https://test.pypi.org/project/SIMULADOR-CARGAS/0.1/
 La ruta para descargar el proyecto es la siguiente, para instalarlo debe ponerse en la consola:
 #### 
-    pip install -i https://test.pypi.org/simple/ Simulador-de-campo-electrico==0.0.1
-Una vez hecho esto el programa se podrá ejecutar desde la consola yendo a la carpeta SIMULADOR y escribiendo:
+    pip install -i https://test.pypi.org/simple/ SIMULADOR-CARGAS==0.1
+Habiendo hecho debe ejecutar el setup.py en la ruta en la que se haya instalado de la siguiente forma:
+####
+    python setup.py install
+Una vez hecho esto el programa se podrá ejecutar desde la consola yendo a la carpeta SIMULADOR_CARGAS que quedará guardada y escribiendo:
 #### 
     python SIMULADOR.py
 Una vez hecho esto se abrirá la ventana principal del programa. Es de aclarar que según como se tenga configurada la versión de Python3 esta instrucción puede variar a:
