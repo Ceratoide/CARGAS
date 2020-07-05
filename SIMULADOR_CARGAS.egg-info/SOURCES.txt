@@ -1,0 +1,6 @@
+README.md
+setup.py
+SIMULADOR_CARGAS.egg-info/PKG-INFO
+SIMULADOR_CARGAS.egg-info/SOURCES.txt
+SIMULADOR_CARGAS.egg-info/dependency_links.txt
+SIMULADOR_CARGAS.egg-info/top_level.txt
