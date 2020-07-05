@@ -1,8 +1,8 @@
-![LOGO](ICONOS/LOGO.png)
+![1](https://i.ibb.co/FJ8c22X/LOGO.png6)
 
 Este simulador de campo eléctrico es un programa diseñado para facilitar el modelado de situaciones que involucren cargas puntuales en Python 3.
 
-![BASE](ICONOS/Base.png)
+![](https://i.ibb.co/KWCK6Pt/Base.png)
 # SIMULADOR V.0.0.1
 Se trata de un programa diseñado con la libreria PyGame que simula el movimiento de cargas dentro de un campo creado por el empleador. Podrá encontrar un pequeño bosquejo del programa dando clic a la siguiente imagen:
 
@@ -50,26 +50,27 @@ correspondiente que se encuentre sobre la pantalla.
    Entre los botones encontrará:
     
    - Retornar: Elimina la ultima carga insertada a la pantalla.
-   ![return](SIMULADOR/sprites/return.png)
+   ![return](https://i.ibb.co/Rv5wnfx/return.png)
    
    - Limpiar: Elimina todas las cargas presentes en la pantalla.
-   ![return](SIMULADOR/sprites/LIMPIAR.png)
+   ![](https://i.ibb.co/mJ6j08T/LIMPIAR.png)
    
    - Carga de Campo: Permite generar una carga de campo en la pantalla.
-   ![return](SIMULADOR/sprites/CARGA.png)
+   ![](https://i.ibb.co/hKqsYtB/CARGA.png)
    
    - Carga de prueba: Permite generar una carga de prueba en la pantalla.
-   ![return](SIMULADOR/sprites/prueba.png) 
+   ![](https://i.ibb.co/3FbCj7C/prueba.png) 
    
    - Detector: Permite fijar la posición, el potencial y campo en un punto de interes.
-   ![return](SIMULADOR/sprites/detector.png) 
+   ![](https://i.ibb.co/GT6XrRn/detector.png) 
    
    - Campo: Inserta un campo eléctrico correspondiente a la configuración de cargas. Para quitarlo debe oprimirse de nuevo sobre el. 
-   ![return](SIMULADOR/sprites/CAMP.png)
+   ![](https://i.ibb.co/Y7r01Gw/CAMP.png)
    - Potencial: Inserta un campo potencial correspondiente a la configuración de cargas. Para quitarlo debe oprimirse de nuevo 
     sobre el.
-   ![return](SIMULADOR/sprites/POT.png)
-   
+   ![](https://i.ibb.co/mhJBH2p/POT.png)
+   - Guardar: Guarda un plot en 3d y 2d del campo y el potencial.
+   ![](https://i.ibb.co/mqC88Gg/save.png)
    - Tecla q: Para salir al inicio.
 
  ### CAMPOS
@@ -86,7 +87,7 @@ correspondiente que se encuentre sobre la pantalla.
  ### PANTALLAS
    En la opción pantallas, que aparece en la pantalla de inicio, encontrará 3 tipos de configuraciones de cargas diferente.
   
-   ![return](SIMULADOR/sprites/carga_en_anillo.png) ![return](SIMULADOR/sprites/constante.png) ![return](SIMULADOR/sprites/dipolo.png)
+   ![](https://i.ibb.co/HHY3QJ2/carga-en-anillo.png) ![](https://i.ibb.co/LPfQNzV/constante.png) ![](https://i.ibb.co/HrCfs0f/dipolo.png)
  ## TEORÍA
  Todo el groso teórico se puede encontrar visitando el siguiente documento.
  [Teoría](https://github.com/Ceratoide/CARGAS/blob/master/Teor%C3%ADa.md) 
