@@ -109,9 +109,7 @@ El link del proyecto en PyPI es el siguiente:https://test.pypi.org/project/SIMUL
 La ruta para descargar el proyecto es la siguiente, para instalarlo debe ponerse en la consola:
 #### 
     pip install -i https://test.pypi.org/simple/ SIMULADOR-CARGAS==0.1.1
-Habiendo hecho debe ejecutar el setup.py en la ruta en la que se haya instalado de la siguiente forma:
-####
-    python setup.py install
+
 Una vez hecho esto el programa se podrá ejecutar desde la consola yendo a la carpeta SIMULADOR_CARGAS que quedará guardada y escribiendo:
 #### 
     python SIMULADOR.py
@@ -120,6 +118,11 @@ Una vez hecho esto se abrirá la ventana principal del programa.
 Es de aclarar que según como se tenga configurada la versión de Python3 esta instrucción y la anterior puede variar a:
 #### 
     python3 SIMULADOR.py
+Si alternativamente decide instalar los archivos desde la propia pagina de Pypi debera extraer el archivo descargado dependiendo del sistema operativo y dar la instrucción:
+####
+    python setup.py install
+De ambas formas podrá llevar a cabo la instalación.
+
 Para que el programa se ejecute correctamente debe tener las librerias mencionadas en la sección de dependencias; posterior a esto podrá disfrutar del programa y sus diferentes modulos. Esto con la instrucción:
 ####
     import SIMULADOR_CARGAS
