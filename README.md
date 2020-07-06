@@ -110,7 +110,7 @@ La ruta para descargar el proyecto es la siguiente, para instalarlo debe ponerse
 #### 
     pip install -i https://test.pypi.org/simple/ SIMULADOR-CARGAS==0.1.1
 
-Una vez hecho esto el programa se podrá ejecutar desde la consola yendo a la carpeta SIMULADOR_CARGAS que quedará guardada y escribiendo:
+Una vez hecho esto el programa se podrá ejecutar desde la consola yendo a la carpeta Scripts de la distribución de python 3 que tenga guardada y escribiendo:
 #### 
     python SIMULADOR.py
 Una vez hecho esto se abrirá la ventana principal del programa. 
