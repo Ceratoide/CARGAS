@@ -1,25 +1,29 @@
 import pygame,sys
 from pygame.locals import *
 import numpy as np
-from Funciones import *
-from Pantalla import *
-from Pantallas import *
-from instrucciones import *
+import SIMULADOR_CARGAS
+from SIMULADOR_CARGAS.Funciones import *
+from SIMULADOR_CARGAS.Pantalla import *
+from SIMULADOR_CARGAS.Pantallas import *
+from SIMULADOR_CARGAS.instrucciones import *
+from pkg_resources import resource_stream, resource_string, resource_filename
+from pathlib import Path
+import os 
+from os.path import join
 class main:
     def __init__(self):
-        
+
         pygame.init()
-        pygame.display.set_caption("Simulador Campo Electrico ")
-        programIcon = pygame.image.load('sprites\\proton.png')
-        pygame.display.set_icon(programIcon)
-        self.imagen_boton = pygame.image.load("sprites\\iniciar.png")
-        self.imagen_boton_pressed = pygame.image.load("sprites\\iniciar_oprimido.png")
-        self.pantallas=pygame.image.load('sprites\\INSTRU.png')
-        self.pantallas_press=pygame.image.load("sprites\\press.png")
-        self.sortir=pygame.image.load('sprites\\SALIR.png')
-        self.sortir_press=pygame.image.load('sprites\\SALIR_PRESS.png')
-        self.instrucciones= pygame.image.load('sprites\\PANTA.png')
-        self.imagen_panel = pygame.image.load('pantallas\\INICIO.jpg')
+        pygame.display.set_caption("Simulador Campo Electrico")
+      
+        self.imagen_boton = pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\iniciar.png"))
+        self.imagen_boton_pressed = pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\iniciar_oprimido.png"))
+        self.pantallas=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\INSTRU.png"))
+        self.pantallas_press=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\press.png"))
+        self.sortir=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\SALIR.png"))
+        self.sortir_press=pygame.image.load(resource_filename("SIMULADOR_CARGAS",'sprites\SALIR_PRESS.png'))
+        self.instrucciones= pygame.image.load(resource_filename("SIMULADOR_CARGAS",'sprites\PANTA.png'))
+        self.imagen_panel = pygame.image.load(resource_filename("SIMULADOR_CARGAS",'pantallas\INICIO.jpg'))
         self.clock=pygame.time.Clock()
         self.screen = pygame.display.set_mode((800, 600))
         self.screen.blit(self.imagen_panel,(0,0))
@@ -34,7 +38,12 @@ class main:
                 self.screen.blit(boton['imagen'], boton['rect'])
 
     def inicio(self):
-        self.clock.tick(10)    
+        self.clock.tick(10)   
+        home = str(Path.home())
+        try:
+            os.mkdir(join(home,'Simulador de Cargas'))
+        except FileExistsError:
+            pass  
         otra_pantalla = True
         botones = []
         r_boton_1_1 = self.imagen_boton.get_rect()
