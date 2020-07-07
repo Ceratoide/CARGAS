@@ -3,7 +3,7 @@
 Este simulador de campo eléctrico es un programa diseñado para facilitar el modelado de situaciones que involucren cargas puntuales en Python 3.
 
 ![](https://i.ibb.co/KWCK6Pt/Base.png)
-# SIMULADOR V.0.1.1
+# SIMULADOR V.0.1.2
 Se trata de un programa diseñado con la libreria PyGame que simula el movimiento de cargas dentro de un campo creado por el empleador. Podrá encontrar un pequeño bosquejo del programa dando clic a la siguiente imagen:
 
 [![Alt text for your video](https://i.ytimg.com/vi/POfKvTa_u_0/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLC8cbWnVCt3717uAAYcMeMXMcbstw)](https://www.youtube.com/watch?v=VFvId3co3d8&list=PLksfzF_1qETEZ64XzaEppu2yLlYUiuvIb&index=1)
@@ -105,12 +105,12 @@ correspondiente que se encuentre sobre la pantalla.
 El proyecto lo podrá encontrar en PyPI, desde donde es posible descargarlo. Lo podrá ejecutar desde la consola corriendo
 el archivo " Simulador de cargas".
 
-El link del proyecto en PyPI es el siguiente:https://test.pypi.org/project/SIMULADOR-CARGAS/0.1.1/
+El link del proyecto en PyPI es el siguiente:https://test.pypi.org/project/SIMULADOR-CARGAS
 La ruta para descargar el proyecto es la siguiente, para instalarlo debe ponerse en la consola:
 #### 
-    pip install -i https://test.pypi.org/simple/ SIMULADOR-CARGAS==0.1.1
+    pip install -i https://test.pypi.org/project/SIMULADOR-CARGAS/
 
-Una vez hecho esto el programa se podrá ejecutar desde la consola yendo a la carpeta Scripts de la distribución de python 3 que tenga guardada y escribiendo:
+Una vez hecho esto el programa se podrá ejecutar desde la consola yendo a la carpeta correspondiente a las Scripts de la distribución de python 3 que tenga configurada y escribiendo:
 #### 
     python SIMULADOR.py
 Una vez hecho esto se abrirá la ventana principal del programa. 
