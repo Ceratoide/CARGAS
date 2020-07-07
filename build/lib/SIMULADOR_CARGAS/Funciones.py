@@ -6,11 +6,11 @@ from SIMULADOR_CARGAS import *
 class carga(pygame.sprite.Sprite):
     def __init__(self,pos,magnitud):
         if magnitud<0:
-            self.image=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\electron.png"))
+            self.image=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/electron.png"))
         if magnitud>0:
-            self.image=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\proton.png"))
+            self.image=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/proton.png"))
         if magnitud==0:
-            self.image=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\neutro.png"))
+            self.image=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/neutro.png"))
         px,py=pos
         self.pos=self.image.get_rect().move(px,py)
         self.magnitud=magnitud
@@ -50,11 +50,11 @@ class ball(pygame.sprite.Sprite):
     
     def __init__(self,pos, vel,magnitud,acel=(0,0)):
         if magnitud<0:
-            self.image=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\electronchikito.png"))
+            self.image=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/electronchikito.png"))
         if magnitud>0:
-            self.image=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\protonchikito.png"))
+            self.image=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/protonchikito.png"))
         if magnitud==0:
-            self.image=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\neutrochikito.png"))
+            self.image=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/neutrochikito.png"))
         px,py=pos
         self.pos=self.image.get_rect().move(px,py)
         self.vel=np.array(vel)
@@ -114,9 +114,9 @@ class ball(pygame.sprite.Sprite):
     
 class detector(pygame.sprite.Sprite):
     def __init__(self,pos):
-        self.image=pygame.image.load(resource_filename("SIMULADOR_CARGAS",'sprites\\detector.png'))
-        self.image_pos=pygame.image.load(resource_filename("SIMULADOR_CARGAS",'sprites\\detector_pos.png'))
-        self.image_neg=pygame.image.load(resource_filename("SIMULADOR_CARGAS",'sprites\detector_neg.png'))
+        self.image=pygame.image.load(resource_filename("SIMULADOR_CARGAS",'sprites/detector.png'))
+        self.image_pos=pygame.image.load(resource_filename("SIMULADOR_CARGAS",'sprites/detector_pos.png'))
+        self.image_neg=pygame.image.load(resource_filename("SIMULADOR_CARGAS",'sprites/detector_neg.png'))
         self.imagen=self.image
         px,py=pos
         self.pos=self.imagen.get_rect().move(px,py)

@@ -6,7 +6,7 @@ class cajas_texto:
         pygame.init()
         self.COLOR_INACTIVE = pygame.Color('black')
         self.COLOR_ACTIVE = pygame.Color('blue')
-        self.FONT = pygame.font.Font(resource_filename("SIMULADOR_CARGAS",'fuentes\\DS-DIGIB.TTF'), 25)
+        self.FONT = pygame.font.Font(resource_filename("SIMULADOR_CARGAS",'fuentes/DS-DIGIB.TTF'), 25)
         self.rect = pygame.Rect(x, y, w, h)
         self.color = self.COLOR_INACTIVE
         self.text = text

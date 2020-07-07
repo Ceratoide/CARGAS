@@ -9,6 +9,7 @@ from SIMULADOR_CARGAS.instrucciones import *
 from pkg_resources import resource_stream, resource_string, resource_filename
 from pathlib import Path
 import os 
+print(os.getcwd())
 from os.path import join
 class main:
     def __init__(self):
@@ -16,14 +17,14 @@ class main:
         pygame.init()
         pygame.display.set_caption("Simulador Campo Electrico")
       
-        self.imagen_boton = pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\iniciar.png"))
-        self.imagen_boton_pressed = pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\iniciar_oprimido.png"))
-        self.pantallas=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\INSTRU.png"))
-        self.pantallas_press=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\press.png"))
-        self.sortir=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\SALIR.png"))
-        self.sortir_press=pygame.image.load(resource_filename("SIMULADOR_CARGAS",'sprites\SALIR_PRESS.png'))
-        self.instrucciones= pygame.image.load(resource_filename("SIMULADOR_CARGAS",'sprites\PANTA.png'))
-        self.imagen_panel = pygame.image.load(resource_filename("SIMULADOR_CARGAS",'pantallas\INICIO.jpg'))
+        self.imagen_boton = pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/iniciar.png"))
+        self.imagen_boton_pressed = pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/iniciar_oprimido.png"))
+        self.pantallas=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/INSTRU.png"))
+        self.pantallas_press=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/press.png"))
+        self.sortir=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/SALIR.png"))
+        self.sortir_press=pygame.image.load(resource_filename("SIMULADOR_CARGAS",'sprites/SALIR_PRESS.png'))
+        self.instrucciones= pygame.image.load(resource_filename("SIMULADOR_CARGAS",'sprites/PANTA.png'))
+        self.imagen_panel = pygame.image.load(resource_filename("SIMULADOR_CARGAS",'pantallas/INICIO.jpg'))
         self.clock=pygame.time.Clock()
         self.screen = pygame.display.set_mode((800, 600))
         self.screen.blit(self.imagen_panel,(0,0))

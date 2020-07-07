@@ -58,10 +58,10 @@ def peroen3d(CARGAS,numero):
 def imagen_toda(CARGAS,numero):
     home = str(Path.home())
     try:
-        os.mkdir(join(home,'Simulador de Cargas\Creaciones'))
+        os.mkdir(join(home,'Simulador de Cargas/Creaciones'))
     except FileExistsError:
         pass
     
-    raw_todo(CARGAS,numero).savefig(join(home,'Simulador de cargas\Creaciones','Campo_y_Potencial_{:}.png'.format(numero)))
-    peroen3d(CARGAS,numero).savefig(join(home,'Simulador de cargas\Creaciones','Potencial_3d_{:}.png'.format(numero)))
+    raw_todo(CARGAS,numero).savefig(join(home,'Simulador de cargas/Creaciones','Campo_y_Potencial_{:}.png'.format(numero)))
+    peroen3d(CARGAS,numero).savefig(join(home,'Simulador de cargas/Creaciones','Potencial_3d_{:}.png'.format(numero)))
 

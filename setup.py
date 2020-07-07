@@ -6,7 +6,7 @@ with open("README.md", "r",encoding="utf8") as fh:
 
 setuptools.setup(
     name="SIMULADOR_CARGAS", 
-    version="0.1.1",
+    version="0.1.2",
     author="Jean Pierre Cifuentes Salazar & Juan Diego Zuñiga",
     author_email="bcifuentes@unal.edu.co",
     description="Un agradable simulador de campo electrico",

@@ -46,8 +46,8 @@ def barra(potenciales):
 
 def imagen(potenciales):
     home = str(Path.home())
-    raw_data(potenciales).savefig(join(home,'Simulador de Cargas\Temporal','Potencial.png'))
-    barra(potenciales).savefig(join(home,'Simulador de Cargas\Temporal','Barra.png'),bbox_inches='tight')
+    raw_data(potenciales).savefig(join(home,'Simulador de Cargas/Temporal','Potencial.png'))
+    barra(potenciales).savefig(join(home,'Simulador de Cargas/Temporal','Barra.png'),bbox_inches='tight')
     plt.close(raw_data(potenciales))
     raw_data(potenciales).clf()
     gc.collect()

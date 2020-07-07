@@ -31,7 +31,7 @@ def raw_field(charges):
 
 def imagencampo(charges):
     home = str(Path.home())
-    raw_field(charges).savefig(join(home,'Simulador de Cargas\Temporal','Campo.png'))
+    raw_field(charges).savefig(join(home,'Simulador de Cargas/Temporal','Campo.png'))
     raw_field(charges).clf()
     plt.close(raw_field(charges))
     gc.collect()

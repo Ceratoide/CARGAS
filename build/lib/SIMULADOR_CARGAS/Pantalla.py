@@ -21,10 +21,10 @@ class world:
         global home
         pygame.init()
         pygame.display.set_caption("Simulador Campo Electrico")
-        programIcon = pygame.image.load(resource_filename("SIMULADOR_CARGAS",'sprites\\proton.png'))
+        programIcon = pygame.image.load(resource_filename("SIMULADOR_CARGAS",'sprites/proton.png'))
         pygame.display.set_icon(programIcon)
         try:
-            os.mkdir(join(home,'Simulador de Cargas\Temporal'))
+            os.mkdir(join(home,'Simulador de Cargas/Temporal'))
         except FileExistsError:
             pass      
         self.barra=False
@@ -33,18 +33,18 @@ class world:
         self.cargas=cargas
         self.detector=detector
         self.screen = pygame.display.set_mode((800, 600))
-        self.tablero=pygame.image.load(resource_filename("SIMULADOR_CARGAS","pantallas\\Tab.png"))
-        self.line=pygame.image.load(resource_filename("SIMULADOR_CARGAS",'sprites\\line.png'))
-        self.fuente= pygame.font.Font(resource_filename("SIMULADOR_CARGAS",'fuentes\\DS-DIGIB.TTF'), 30)
+        self.tablero=pygame.image.load(resource_filename("SIMULADOR_CARGAS","pantallas/Tab.png"))
+        self.line=pygame.image.load(resource_filename("SIMULADOR_CARGAS",'sprites/line.png'))
+        self.fuente= pygame.font.Font(resource_filename("SIMULADOR_CARGAS",'fuentes/DS-DIGIB.TTF'), 30)
         self.window = pygame.display.get_surface()
         if pote==True:
-            self.surf = pygame.transform.flip(pygame.image.load(join(home,'Simulador de Cargas\Temporal','Potencial.png')),False,True)
+            self.surf = pygame.transform.flip(pygame.image.load(join(home,'Simulador de Cargas/Temporal','Potencial.png')),False,True)
             self.barra=True
         elif campe==True:
-            self.surf = pygame.transform.flip(pygame.image.load(join(home,'Simulador de Cargas\Temporal','Campo.png')),False,True)
+            self.surf = pygame.transform.flip(pygame.image.load(join(home,'Simulador de Cargas/Temporal','Campo.png')),False,True)
             self.barra=False
         elif pote==False and campe==False:
-            self.surf =pygame.image.load(resource_filename("SIMULADOR_CARGAS",'pantallas\\fondo.png'))
+            self.surf =pygame.image.load(resource_filename("SIMULADOR_CARGAS",'pantallas/fondo.png'))
             self.barra=False
         self.surf=self.surf.convert()
         self.window.blit(self.surf, (0,0))
@@ -58,7 +58,7 @@ class world:
             self.screen.blit(line1, (225,pygame.mouse.get_pos()[1]))
             self.screen.blit(line2, (pygame.mouse.get_pos()[0],458))
         if self.barra:
-            self.window.blit(pygame.image.load(join(home,'Simulador de Cargas\Temporal','Barra.png')), (240,471))
+            self.window.blit(pygame.image.load(join(home,'Simulador de Cargas/Temporal','Barra.png')), (240,471))
 
         for boton in lista_botones:
             if boton['on_click']:
@@ -76,7 +76,7 @@ class world:
             o.move(self.cargas)
         b=0
         if GUARDAR:
-            while path.exists(join(home,'Simulador de cargas\Creaciones','Campo_y_Potencial_{:}.png'.format(b))):
+            while path.exists(join(home,'Simulador de cargas/Creaciones','Campo_y_Potencial_{:}.png'.format(b))):
                 b=b+1
             imagen_toda(self.cargas,b)
             
@@ -143,23 +143,23 @@ class world:
         velx = cajas_texto(13, 460, 100, 32)
         vely = cajas_texto(112, 460, 95, 32)
         input_boxes = [mag, velx,vely]
-        ELECTRON = pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\prueba.png"))
-        ELECTRON_PULSO = pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\PRUEBA_OPRIMIDO.png"))
-        CARGA = pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\CARGA.png"))
-        CARGA_PULSO = pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\CARGA_OPRIMIDO.png"))
-        NEW=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\LIMPIAR.png"))
-        NEW_PULSO=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\LIMPIAR_OPRIMIDO.png"))
-        ULTIMO=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\return.png"))
-        ULTIMO_PULSO=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\return_press.png"))
-        COZZETTI=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\POT.png"))
-        MAXIMO_COZZETTI=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\POT_PRESS.png"))
-        CAMP=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\CAMP.png"))
-        CAMP_PRESS=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\CAMP_PRESS.png"))
-        SAVE=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\save.png"))
-        SAVE_PRESS=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\save_press.png"))
-        DET=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\detector.png"))
-        EQUIS=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\equis.png"))
-        EQUISP=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites\\equisp.png"))
+        ELECTRON = pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/prueba.png"))
+        ELECTRON_PULSO = pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/PRUEBA_OPRIMIDO.png"))
+        CARGA = pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/CARGA.png"))
+        CARGA_PULSO = pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/CARGA_OPRIMIDO.png"))
+        NEW=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/LIMPIAR.png"))
+        NEW_PULSO=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/LIMPIAR_OPRIMIDO.png"))
+        ULTIMO=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/return.png"))
+        ULTIMO_PULSO=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/return_press.png"))
+        COZZETTI=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/POT.png"))
+        MAXIMO_COZZETTI=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/POT_PRESS.png"))
+        CAMP=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/CAMP.png"))
+        CAMP_PRESS=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/CAMP_PRESS.png"))
+        SAVE=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/save.png"))
+        SAVE_PRESS=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/save_press.png"))
+        DET=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/detector.png"))
+        EQUIS=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/equis.png"))
+        EQUISP=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/equisp.png"))
         v=[]
         u=[carga((100,100),0)]
         botones = []
@@ -267,15 +267,15 @@ class world:
 
                 if event.type==QUIT:
                     try:
-                        remove(join(home,'Simulador de Cargas\Temporal','Potencial.png'))
+                        remove(join(home,'Simulador de Cargas/Temporal','Potencial.png'))
                     except FileNotFoundError:
                         pass
                     try:
-                        remove(join(home,'Simulador de Cargas\Temporal','Campo.png'))
+                        remove(join(home,'Simulador de Cargas/Temporal','Campo.png'))
                     except FileNotFoundError:
                         pass
                     try:
-                        remove(join(home,'Simulador de Cargas\Temporal','Barra.png'))
+                        remove(join(home,'Simulador de Cargas/Temporal','Barra.png'))
                     except FileNotFoundError:
                         pass
                     pygame.quit()
