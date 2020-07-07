@@ -17,7 +17,7 @@ class main:
         pygame.init()
         pygame.display.set_caption("Simulador Campo Electrico")
       
-        self.imagen_boton = pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/iniciar.png"))
+        self.imagen_boton = pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/Iniciar.png"))
         self.imagen_boton_pressed = pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/iniciar_oprimido.png"))
         self.pantallas=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/INSTRU.png"))
         self.pantallas_press=pygame.image.load(resource_filename("SIMULADOR_CARGAS","sprites/press.png"))
