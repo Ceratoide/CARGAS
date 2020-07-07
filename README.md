@@ -3,7 +3,7 @@
 Este simulador de campo eléctrico es un programa diseñado para facilitar el modelado de situaciones que involucren cargas puntuales en Python 3.
 
 ![](https://i.ibb.co/KWCK6Pt/Base.png)
-# SIMULADOR V.0.1.2
+# SIMULADOR V.0.1.3
 Se trata de un programa diseñado con la libreria PyGame que simula el movimiento de cargas dentro de un campo creado por el empleador. Podrá encontrar un pequeño bosquejo del programa dando clic a la siguiente imagen:
 
 [![Alt text for your video](https://i.ytimg.com/vi/POfKvTa_u_0/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLC8cbWnVCt3717uAAYcMeMXMcbstw)](https://www.youtube.com/watch?v=VFvId3co3d8&list=PLksfzF_1qETEZ64XzaEppu2yLlYUiuvIb&index=1)
