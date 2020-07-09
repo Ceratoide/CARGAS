@@ -118,9 +118,8 @@ Una vez hecho esto se abrirá la ventana principal del programa.
 Es de aclarar que según como se tenga configurada la versión de Python3 esta instrucción y la anterior puede variar a:
 #### 
     python3 SIMULADOR.py
-Si alternativamente decide instalar los archivos desde la propia pagina de Pypi debera extraer el archivo descargado dependiendo del sistema operativo y dar la instrucción:
-####
-    python setup.py install
+Si alternativamente decide instalar los archivos desde la propia pagina de Pypi debera extraer el archivo descargado dependiendo del sistema operativo y dar la misma instrucción que antes pero para la nueva ruta en la que se instalo.
+
 De ambas formas podrá llevar a cabo la instalación.
 
 Para que el programa se ejecute correctamente debe tener las librerias mencionadas en la sección de dependencias; posterior a esto podrá disfrutar del programa y sus diferentes modulos. Esto con la instrucción:
